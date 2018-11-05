@@ -1,0 +1,128 @@
+webpackJsonp([0],{
+
+/***/ 512:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PengagendaanverifikasiPageModule", function() { return PengagendaanverifikasiPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pengagendaanverifikasi__ = __webpack_require__(527);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PengagendaanverifikasiPageModule = /** @class */ (function () {
+    function PengagendaanverifikasiPageModule() {
+    }
+    PengagendaanverifikasiPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__pengagendaanverifikasi__["a" /* PengagendaanverifikasiPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pengagendaanverifikasi__["a" /* PengagendaanverifikasiPage */]),
+            ],
+        })
+    ], PengagendaanverifikasiPageModule);
+    return PengagendaanverifikasiPageModule;
+}());
+
+//# sourceMappingURL=pengagendaanverifikasi.module.js.map
+
+/***/ }),
+
+/***/ 527:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PengagendaanverifikasiPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PengagendaanverifikasiPage = /** @class */ (function () {
+    function PengagendaanverifikasiPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.agenda = this.getagendasurat(this.idsurat.id, window.localStorage.getItem('kode_unker'));
+        var itCategory = new TreeviewItem({
+            text: 'IT', value: 9,
+            children: [
+                {
+                    text: 'Programming', value: 91,
+                    children: [{
+                            text: 'Frontend', value: 911,
+                            children: [
+                                { text: 'Angular 1', value: 9111 },
+                                { text: 'Angular 2', value: 9112 },
+                                { text: 'ReactJS', value: 9113 }
+                            ]
+                        }, {
+                            text: 'Backend', value: 912,
+                            children: [
+                                { text: 'C#', value: 9121 },
+                                { text: 'Java', value: 9122 },
+                                { text: 'Python', value: 9123, checked: false }
+                            ]
+                        }]
+                },
+                {
+                    text: 'Networking', value: 92,
+                    children: [
+                        { text: 'Internet', value: 921 },
+                        { text: 'Security', value: 922 }
+                    ]
+                }
+            ]
+        });
+    }
+    PengagendaanverifikasiPage.prototype.getagendasurat = function (param, param1) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/verifikasiagenda?id=' + param + '&kode_unker=' + param1)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.surat = [];
+            for (var i = 0; i < data.length; i++) {
+                _this.surat.push(data[i]);
+            }
+        });
+    };
+    PengagendaanverifikasiPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PengagendaanverifikasiPage');
+    };
+    PengagendaanverifikasiPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-pengagendaanverifikasi',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\pengagendaanverifikasi\pengagendaanverifikasi.html"*/'<ion-content padding>\n    <ngx-treeview\n        [config]="config"\n        [items]="items"\n        (selectedChange)="onSelectedChange($event)"\n        (filterChange)="onFilterChange($event)">\n    </ngx-treeview>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\pengagendaanverifikasi\pengagendaanverifikasi.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
+    ], PengagendaanverifikasiPage);
+    return PengagendaanverifikasiPage;
+    var _a, _b, _c;
+}());
+
+//# sourceMappingURL=pengagendaanverifikasi.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=0.js.map

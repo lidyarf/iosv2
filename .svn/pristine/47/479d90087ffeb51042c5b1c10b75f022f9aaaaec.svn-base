@@ -1,0 +1,25 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PengagendaanasalPage } from '../Pengagendaanasal/Pengagendaanasal';
+import { PengagendaanverifikasiPage } from '../Pengagendaanverifikasi/Pengagendaanverifikasi';
+
+@IonicPage()
+@Component({
+  selector: 'page-pengagendaandetail',
+  templateUrl: 'pengagendaandetail.html',
+})
+export class PengagendaandetailPage {
+  tab1=PengagendaanasalPage;
+  tab2=PengagendaanverifikasiPage;
+
+  idagenda:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.idagenda = this.navParams.get('item');
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad PengagendaandetailPage');
+  }
+
+}

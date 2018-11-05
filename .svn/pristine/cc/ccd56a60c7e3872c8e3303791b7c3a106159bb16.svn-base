@@ -1,0 +1,173 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient} from '@angular/common/http';
+import { LoadingController } from 'ionic-angular';
+import { PengagendaandetailPage } from '../pengagendaandetail/pengagendaandetail';
+import { AlertController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+
+@IonicPage()
+@Component({
+  selector: 'page-pengagendaan',
+  templateUrl: 'pengagendaan.html',
+})
+export class PengagendaanPage {
+
+  asli: {};
+  bground:string;
+  loader: any;
+  nCnt: number = 0;
+  teks: any;
+  teks2: any;
+  pagenumber: number = 0;
+  pagecount:any;
+
+  icons: string[];
+  isi: Array<{
+    perihal: string, 
+    asalsurat: string, 
+    tglsurat:string, 
+    icon: string,
+    id:string,
+    disp:string,
+  }>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient,
+  public loadingCtrl:LoadingController, public alertCtrl:AlertController) {
+    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+    'american-football', 'boat', 'bluetooth', 'build'];
+
+    this.asli = this.getagendasurat(this.nCnt);
+
+    if(this.nCnt == 0){
+      this.teks2 = "hilang";
+    }else{
+      this.teks2 = "ada";
+    }
+    
+  }
+
+  showLoader() { //call this fn to show loader
+    this.loader = this.loadingCtrl.create({
+        content: 'Please wait...',
+    });
+    this.loader.present();    
+  }
+
+  hideLoader() {
+    if(this.loader)
+      this.loader.dismiss();
+  }
+
+  getagendasurat(no){
+    this.showLoader();
+    return this.http.get('http://103.40.94.42/wssurat/Api/suratasli/page/'+no).subscribe((data:any=[]) => {
+      this.hideLoader();
+      
+      this.isi=[];
+      for (let i = 0; i < data.items.length; i++) {
+
+      
+        this.isi.push({
+          perihal: data.items[i].PERIHAL,
+          asalsurat: data.items[i].TEXT_ASAL_SURAT,
+          tglsurat: data.items[i].TGL_SURAT,
+          icon: this.icons[Math.floor(Math.random() * this.icons.length)],
+          id:data.items[i].ID,
+          disp:data.items[i].disp
+        });
+      }
+      this.pagecount = data._meta.pageCount;
+    });
+  }
+
+  itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(PengagendaandetailPage, {
+      item: item
+    });
+  }
+
+  nextpage(item) {
+
+    this.nCnt = this.nCnt+10;
+
+    if(this.pagenumber >= item-2){
+      this.teks = "hilang";
+    }else{
+      this.teks = "ada";
+    }
+
+    if(this.nCnt == 0){
+      this.teks2 = "hilang";
+    }else{
+      this.teks2 = "ada";
+    }
+
+    this.getagendasurat(this.nCnt);
+
+    this.pagenumber = this.pagenumber+1;
+    return this.nCnt; 
+  }
+
+  backpage(item) {
+    this.nCnt = this.nCnt-10;
+
+    if(this.pagenumber <= 0){
+      this.teks = "hilang";
+    }else{
+      this.teks = "ada";
+    }
+
+    if(this.nCnt==0){
+      this.teks2 = "hilang";
+    }else{
+      this.teks2 = "ada";
+    }
+
+    this.getagendasurat(this.nCnt);
+
+    this.pagenumber = this.pagenumber-1;
+    return this.nCnt; 
+  }
+
+  df(tes){
+    window.open("http://103.40.94.42/wssurat/Api/downloadsuratmasuk?id="+tes,"_system","location=yes");
+  }
+
+  Logout(){
+    let alert = this.alertCtrl.create({
+      title: 'Confirm Exit',
+      message: 'Are you want to exit,'+ window.localStorage.getItem('nama'),
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            window.localStorage.removeItem('username');
+            window.localStorage.removeItem('password');
+            window.localStorage.removeItem('nama');
+            window.localStorage.removeItem('kode_unor');
+            window.localStorage.removeItem('kode_unker');
+            window.localStorage.removeItem('id');
+            window.localStorage.removeItem('verifikator');
+            this.navCtrl.setRoot(LoginPage);
+            this.navCtrl.popToRoot();
+            console.log('OK');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad PengagendaanPage');
+  }
+
+}

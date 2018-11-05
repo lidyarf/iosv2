@@ -1,0 +1,122 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.tool{
+    border-bottom:white solid 2px; 
+    height: 200px;
+}
+
+// .toolbar-content toolbar-content-md{
+//     margin-top: -117px;
+// }
+// .toolbar-content-md{
+//     margin-top:-117px;
+// }
+
+.toolimg{
+    width:85px;
+    height:auto;
+    // margin-top:20px;
+    padding-top: 152px;
+}
+
+
+
+.toolimg.md{
+    width:85px;
+    height:auto;
+    margin-top:20px;
+}
+.toolimg.ios{
+    width:85px;
+    height:auto;
+    margin-top:20px;
+}
+ion-header {
+    .toolbar-background {
+        background:#3f51b5;
+    }
+    .toolbar-title {
+        color:white;
+        text-align: center;
+    }
+
+    .toolbar-title-md {
+
+        padding: 0 20px ;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+    
+    }
+    // .toolbar-ios {
+    //     margin-top:50px;
+    // }
+  
+    
+    .bar-button {
+        color: white;
+    }
+}
+
+
+
+
+
+ion-footer {
+    .toolbar {
+        text-align: center;
+    }
+    .toolbar-background {
+        background:#3f51b5;
+    }
+}
+
+.scroll-content {
+    overflow: auto;
+}
+
+.list-md {
+    .item-block{
+        .item-inner {
+            border-bottom: unset;
+        }
+    }
+}
+
+.list-ios {
+    .item-block{
+        .item-ios {
+            border-bottom: 0px solid #3f51b5;
+        }
+    }
+}
+
+.jumlah{
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #f39c12;
+    border-radius: 10px;
+}

@@ -1,0 +1,2645 @@
+webpackJsonp([23],{
+
+/***/ 119:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AsaldispPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AsaldispPage = /** @class */ (function () {
+    function AsaldispPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.iddisp = navParams.data;
+        this.surat1 = this.getsuratasli(this.iddisp.id);
+        console.log(this.iddisp);
+        console.log(this.getsuratasli(this.iddisp.id));
+    }
+    AsaldispPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AsaldispPage');
+    };
+    AsaldispPage.prototype.getsuratasli = function (param) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/surat?id=' + param)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.suratd = [];
+            for (var i = 0; i < data.data.length; i++) {
+                _this.suratd.push(data.data[i]);
+            }
+        });
+    };
+    AsaldispPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-asaldisp',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\asaldisp\asaldisp.html"*/'<ion-content padding>\n    <div *ngFor = "let i of suratd">\n        <div><div class="info-surat-label"><b>Asal Surat</b></div><div class="info-surat-content">{{i.TEXT_ASAL_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Perihal</b></div><div class="info-surat-content">{{i.PERIHAL}}</div></div>\n        <div><div class="info-surat-label"><b>Tanggal Surat</b></div><div class="info-surat-content">{{i.TGL_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Nomor Surat</b></div><div class="info-surat-content">{{i.NO_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Nomor/Agenda</b></div><div class="info-surat-content">{{i.NO_AGENDA}}</div></div>\n        <div><div class="info-surat-label"><b>Sifat Surat</b></div><div class="info-surat-content">{{i.SIFAT_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Klasifikasi Surat</b></div><div class="info-surat-content">{{i.KECEPATAN_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Deskripsi</b></div><div class="info-surat-content">{{i.DESKRIPSI_SINGKAT}}</div></div>\n      </div>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\asaldisp\asaldisp.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], AsaldispPage);
+    return AsaldispPage;
+}());
+
+//# sourceMappingURL=asaldisp.js.map
+
+/***/ }),
+
+/***/ 120:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DisposisiasliPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DisposisiasliPage = /** @class */ (function () {
+    function DisposisiasliPage(navCtrl, navParams, http) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.sifat = this.idsurat.sifat;
+        this.kec = this.idsurat.kec;
+        console.log('IDSURAT ', this.idsurat);
+        console.log('kodeunor ', window.localStorage.getItem('kode_unor'));
+        // this.lajur1 = this.getlajursurat(this.idsurat.id,window.localStorage.getItem('kode_unor'));
+        // this.tujuan1 = this.gettujuansurat(window.localStorage.getItem('kode_unor'),this.idsurat.id);
+        this.catatan1 = this.getketerangan(this.idsurat.id, window.localStorage.getItem('kode_unor'));
+        //tujuan surat
+        this.tujuan = [];
+        this.http.get('http://103.40.94.42/wssurat/Api/tujuan?kode_unor=' + window.localStorage.getItem('kode_unor') + '&id=' + this.idsurat.id)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            for (var i = 0; i < data.length; i++) {
+                _this.tujuan.push(data[i]);
+            }
+        });
+        //lajur disposisi
+        this.lajur = [];
+        this.http.get('http://103.40.94.42/wssurat/Api/lajurdisposisi?id=' + this.idsurat.id + '&kd_unor=' + window.localStorage.getItem('kode_unor'))
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            for (var i = 0; i < data.length; i++) {
+                _this.lajur.push(data[i]);
+            }
+        });
+        console.log(this.lajur);
+    }
+    //save disposisi
+    DisposisiasliPage.prototype.itemTapped = function (catatan) {
+        this.catatandisp = catatan;
+        console.log(this.idsurat.id);
+        //tujuan
+        this.tujuandisposisi = [];
+        for (var i = 0; i < this.tujuan.length; i++) {
+            if (this.tujuan[i].unitkerjadisosisi) {
+                var id = this.tujuan[i].ID_UNIT_KERJA;
+                var nama = this.tujuan[i].unitkerjadisosisi;
+                this.tujuandisposisi.push(id);
+            }
+        }
+        //lajur
+        this.lajurdisposisi = [];
+        for (var i = 0; i < this.lajur.length; i++) {
+            if (this.lajur[i].status) {
+                var id = this.lajur[i].id;
+                var nama = this.lajur[i].lajur_disposisi;
+                this.lajurdisposisi.push('DBSURAT.TABEL_LAJUR_DISPOSISI(' + id + ",'" + nama + "')");
+            }
+        }
+        var datadisp = {
+            id: this.idsurat.id,
+            kd_unor: window.localStorage.kode_unor,
+            KODE_UNOR: this.tujuandisposisi,
+            THSURATMASUK_ID: this.idsurat.id,
+            CREATED_DATE: '',
+            UPDATED_DATE: '',
+            TRKECEPATANSURAT_ID: '',
+            TRSIFATSURAT_ID: '',
+            CATATAN_DISPOSISI: catatan,
+            DISPOSISI_LAJUR: 'DBSURAT.TYPE_LAJUR_DISPOSISI(' + this.lajurdisposisi + ')',
+            JENIS_SURAT: '',
+            THSURATMASUKDISTRIBUSI_ID: '',
+            PARENT_ID: ''
+        };
+        this.http.post('http://dev.cmsolusi.com/ws/Api/disposisi', datadisp)
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.log(error + "Oooops!");
+        });
+    };
+    DisposisiasliPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad DisposisiasliPage');
+    };
+    DisposisiasliPage.prototype.getketerangan = function (param, param2) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/disp?id=' + param + '&kode_unor=' + param2)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.catatan = data.CATATAN_DISPOSISI;
+            console.log(_this.catatan);
+        });
+    };
+    DisposisiasliPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-disposisiasli',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\disposisiasli\disposisiasli.html"*/'<ion-content padding>\n  <b>Sifat Surat</b>\n  <span *ngIf="sifat == 1">Biasa</span>\n  <span *ngIf="sifat == 2">Rahasia</span>\n  <span *ngIf="sifat == 3">Sangat Rahasia</span>\n\n  <b>Kecepatan Surat</b>\n  <span *ngIf="kec == 1">Biasa</span>\n  <span *ngIf="kec == 2">Segera</span>\n  <span *ngIf="kec == 3">Sangat Segera</span>\n\n  <h4><b>DITERUSKAN KEPADA</b></h4>\n  <div *ngFor="let tr of tujuan">\n    <ion-checkbox  [(ngModel)]="tr.unitkerjadisosisi"></ion-checkbox>\n    <span *ngFor = "let tr2 of tr.nama_unit_kerja">{{tr2.jabatan_unor}}</span>\n  </div>\n\n    <h4><b>LAJUR DISPOSISI</b></h4>\n    <div *ngFor = "let lj of lajur">\n      <ion-checkbox [(ngModel)]="lj.status"></ion-checkbox>\n      {{lj.lajur_disposisi}}\n    </div>\n\n    <h4><b>ISI DISPOSISI</b></h4>\n    <ion-textarea [(ngModel)]="catatan" placeholder="Masukkan Keterangan/Catatan"></ion-textarea>\n\n    <button ion-button full color="primary" type="submit" (click)="itemTapped(catatan)">DISPOSISI</button>\n\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\disposisiasli\disposisiasli.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], DisposisiasliPage);
+    return DisposisiasliPage;
+}());
+
+//# sourceMappingURL=disposisiasli.js.map
+
+/***/ }),
+
+/***/ 121:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DisposisidispPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DisposisidispPage = /** @class */ (function () {
+    function DisposisidispPage(navCtrl, navParams, http) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.iddisp = navParams.data;
+        this.sifat = this.iddisp.sifat;
+        this.kec = this.iddisp.kec;
+        console.log('IDdisp ', this.iddisp);
+        console.log('kodeunor ', window.localStorage.getItem('kode_unor'));
+        this.catatan1 = this.getketerangan(this.iddisp.id, window.localStorage.getItem('kode_unor'));
+        //tujuan surat
+        this.tujuan = [];
+        this.http.get('http://103.40.94.42/wssurat/Api/tujuandisp?kode_unor=' + window.localStorage.getItem('kode_unor') + '&id=' + this.iddisp.id)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            for (var i = 0; i < data.length; i++) {
+                _this.tujuan.push(data[i]);
+            }
+        });
+        //lajur disposisi
+        this.lajur = [];
+        this.http.get('http://103.40.94.42/wssurat/Api/lajurdisposisi2?id=' + this.iddisp.id + '&kd_unor=' + window.localStorage.getItem('kode_unor'))
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            for (var i = 0; i < data.length; i++) {
+                _this.lajur.push(data[i]);
+            }
+        });
+        console.log(this.lajur);
+    }
+    DisposisidispPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad DisposisidispPage');
+    };
+    DisposisidispPage.prototype.itemTapped = function (catatan) {
+        this.catatandisp = catatan;
+        console.log(this.iddisp.id);
+        //tujuan
+        this.tujuandisposisi = [];
+        for (var i = 0; i < this.tujuan.length; i++) {
+            if (this.tujuan[i].unitkerjadisosisi) {
+                var id = this.tujuan[i].ID_UNIT_KERJA;
+                var nama = this.tujuan[i].unitkerjadisosisi;
+                this.tujuandisposisi.push(id);
+            }
+        }
+        //lajur
+        this.lajurdisposisi = [];
+        for (var i = 0; i < this.lajur.length; i++) {
+            if (this.lajur[i].status) {
+                var id = this.lajur[i].id;
+                var nama = this.lajur[i].lajur_disposisi;
+                this.lajurdisposisi.push('DBSURAT.TABEL_LAJUR_DISPOSISI(' + id + ",'" + nama + "')");
+            }
+        }
+        var datadisp = {
+            id: this.iddisp.id,
+            kd_unor: window.localStorage.kode_unor,
+            KODE_UNOR: this.tujuandisposisi,
+            THSURATMASUK_ID: this.iddisp.id,
+            CREATED_DATE: '',
+            UPDATED_DATE: '',
+            TRKECEPATANSURAT_ID: '',
+            TRSIFATSURAT_ID: '',
+            CATATAN_DISPOSISI: catatan,
+            DISPOSISI_LAJUR: 'DBSURAT.TYPE_LAJUR_DISPOSISI(' + this.lajurdisposisi + ')',
+            JENIS_SURAT: '',
+            THSURATMASUKDISTRIBUSI_ID: '',
+            PARENT_ID: ''
+        };
+        this.http.post('http://dev.cmsolusi.com/ws/Api/disposisi2', datadisp)
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.log(error + "Oooops!");
+        });
+    };
+    DisposisidispPage.prototype.getketerangan = function (param, param2) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/disp2?id=' + param + '&kode_unor=' + param2)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.catatan = data.CATATAN_DISPOSISI;
+            console.log(_this.catatan);
+        });
+    };
+    DisposisidispPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-disposisidisp',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\disposisidisp\disposisidisp.html"*/'<ion-content padding>\n    <b>Sifat Surat</b>\n    <span *ngIf="sifat == 1">Biasa</span>\n    <span *ngIf="sifat == 2">Rahasia</span>\n    <span *ngIf="sifat == 3">Sangat Rahasia</span>\n  \n    <b>Kecepatan Surat</b>\n    <span *ngIf="kec == 1">Biasa</span>\n    <span *ngIf="kec == 2">Segera</span>\n    <span *ngIf="kec == 3">Sangat Segera</span>\n  \n    <h4><b>DITERUSKAN KEPADA</b></h4>\n    <div *ngFor="let tr of tujuan">\n      <ion-checkbox  [(ngModel)]="tr.unitkerjadisosisi"></ion-checkbox>\n      <span *ngFor = "let tr2 of tr.nama_unit_kerja">{{tr2.jabatan_unor}}</span>\n    </div>\n  \n      <h4><b>LAJUR DISPOSISI</b></h4>\n      <div *ngFor = "let lj of lajur">\n        <ion-checkbox [(ngModel)]="lj.status"></ion-checkbox>\n        {{lj.lajur_disposisi}}\n      </div>\n  \n      <h4><b>ISI DISPOSISI</b></h4>\n      <ion-textarea [(ngModel)]="catatan" placeholder="Masukkan Keterangan/Catatan"></ion-textarea>\n  \n      <button ion-button full color="primary" type="submit" (click)="itemTapped(catatan)">DISPOSISI</button>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\disposisidisp\disposisidisp.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], DisposisidispPage);
+    return DisposisidispPage;
+}());
+
+//# sourceMappingURL=disposisidisp.js.map
+
+/***/ }),
+
+/***/ 122:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KonsepcatatanPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var KonsepcatatanPage = /** @class */ (function () {
+    function KonsepcatatanPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.statusdata = [
+            { id: 1, name: 'Setuju' },
+            { id: 2, name: 'Tolak' }
+        ];
+    }
+    KonsepcatatanPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad KonsepcatatanPage');
+    };
+    KonsepcatatanPage.prototype.itemTapped = function (a, b) {
+        var datastatus = {
+            id: this.idsurat.id,
+            kode_unor: window.localStorage.getItem('kode_unor'),
+            unitkerja: window.localStorage.getItem('kode_unker'),
+            status: a,
+            catatan: b
+        };
+        console.log(datastatus);
+        // var headers = new Headers();
+        // headers.append('Access-Control-Allow-Origin' , '*');
+        // headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        // headers.append('Accept','application/json');
+        // headers.append('content-type','application/json');
+        // let options = new RequestOptions({ headers:headers});
+        this.http.post('http://103.40.94.42/wssurat/Api/statussuratkeluar', datastatus)
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.log(error + "Oooops!");
+        });
+    };
+    KonsepcatatanPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-konsepcatatan',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\konsepcatatan\konsepcatatan.html"*/'<ion-content padding>\n  <ion-label>Status</ion-label>\n  <ion-select  [(ngModel)]="status">\n    <ion-option *ngFor="let i of statusdata" [value]="i.id">{{i.name}}</ion-option>\n  </ion-select>\n\n  <ion-label>Keterangan</ion-label>\n  <ion-textarea [(ngModel)]="ket" placeholder="Masukkan Keterangan"></ion-textarea>\n\n  <button ion-button full color="primary" type="submit" (click)="itemTapped(status,ket)">SIMPAN</button>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\konsepcatatan\konsepcatatan.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], KonsepcatatanPage);
+    return KonsepcatatanPage;
+}());
+
+//# sourceMappingURL=konsepcatatan.js.map
+
+/***/ }),
+
+/***/ 123:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KonsepinfoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var KonsepinfoPage = /** @class */ (function () {
+    function KonsepinfoPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.surat1 = this.getsuratkeluar(this.idsurat.id);
+    }
+    KonsepinfoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad KonsepinfoPage');
+    };
+    KonsepinfoPage.prototype.getsuratkeluar = function (param) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/detailsuratkeluar?id=' + param)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.surat = [];
+            for (var i = 0; i < data.data.length; i++) {
+                _this.surat.push(data.data[i]);
+            }
+        });
+    };
+    KonsepinfoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-konsepinfo',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\konsepinfo\konsepinfo.html"*/'<ion-content padding>\n  <div *ngFor = "let i of surat">\n    <div><div class="info-surat-label"><b>Penyusun Konsep</b></div><div class="info-surat-content">{{i.CREATED_ID}}/{{i.CREATED_UNITKERJA}}</div></div>\n    <div><div class="info-surat-label"><b>Pengirim/Penandatangan</b></div><div class="info-surat-content">{{i.UNITKERJAPENANDATANGAN_TEXT}}</div></div>\n    <div><div class="info-surat-label"><b>Tujuan</b></div><div class="info-surat-content">Tujuan</div></div>\n    <div><div class="info-surat-label"><b>Klasifikasi Surat</b></div><div class="info-surat-content">{{i.KLASIFIKASI_SURAT}}</div></div>\n    <div><div class="info-surat-label"><b>Sifat Surat</b></div><div class="info-surat-content">{{i.SIFAT_SURAT}}</div></div>\n    <div><div class="info-surat-label"><b>Kecepatan Surat</b></div><div class="info-surat-content">{{i.KECEPATAN_SURAT}}</div></div>\n    <div><div class="info-surat-label"><b>Nomor Surat</b></div><div class="info-surat-content">{{i.NO_SURAT}}</div></div>\n    <div><div class="info-surat-label"><b>Tanggal Surat</b></div><div class="info-surat-content">{{i.TGL_SURAT}}</div></div>\n    <div><div class="info-surat-label"><b>Perihal</b></div><div class="info-surat-content">{{i.PERIHAL}}</div></div>\n    <div><div class="info-surat-label"><b>Jumlah Lampiran</b></div><div class="info-surat-content">0</div></div>\n    <div><div class="info-surat-label"><b>Petugas Pengirim</b></div><div class="info-surat-content">Pengirim</div></div>\n    <div><div class="info-surat-label"><b>Pemeriksa</b></div><div class="info-surat-content">{{i.NAMA_UNOR}}</div></div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\konsepinfo\konsepinfo.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], KonsepinfoPage);
+    return KonsepinfoPage;
+}());
+
+//# sourceMappingURL=konsepinfo.js.map
+
+/***/ }),
+
+/***/ 124:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KonsepsuratdetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__konsepinfo_konsepinfo__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__konsepcatatan_konsepcatatan__ = __webpack_require__(122);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var KonsepsuratdetailPage = /** @class */ (function () {
+    function KonsepsuratdetailPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.tab1 = __WEBPACK_IMPORTED_MODULE_2__konsepinfo_konsepinfo__["a" /* KonsepinfoPage */];
+        this.tab2 = __WEBPACK_IMPORTED_MODULE_3__konsepcatatan_konsepcatatan__["a" /* KonsepcatatanPage */];
+        this.idkonsep = this.navParams.get('item');
+        console.log(this.idkonsep);
+        this.ver = this.idkonsep.verifikasi;
+    }
+    KonsepsuratdetailPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad KonsepsuratdetailPage');
+    };
+    KonsepsuratdetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-konsepsuratdetail',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\konsepsuratdetail\konsepsuratdetail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Konsep Surat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-tabs *ngIf="ver == \'Belum\'">\n    <ion-tab [root]="tab1" tabTitle="Info Surat" [rootParams]="idkonsep"></ion-tab>\n    <ion-tab [root]="tab2" tabTitle="Isi & Catatan Surat" [rootParams]="idkonsep"></ion-tab>\n  </ion-tabs>\n\n  <ion-tabs *ngIf="ver == \'Sudah\'">\n    <ion-tab [root]="tab1" tabTitle="Info Surat" [rootParams]="idkonsep"></ion-tab>\n  </ion-tabs>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\konsepsuratdetail\konsepsuratdetail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], KonsepsuratdetailPage);
+    return KonsepsuratdetailPage;
+}());
+
+//# sourceMappingURL=konsepsuratdetail.js.map
+
+/***/ }),
+
+/***/ 125:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AsalasliPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AsalasliPage = /** @class */ (function () {
+    function AsalasliPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.surat1 = this.getsuratasli(this.idsurat.id);
+        console.log(this.idsurat.id);
+        console.log(this.getsuratasli(this.idsurat.id));
+    }
+    AsalasliPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AsalasliPage');
+    };
+    AsalasliPage.prototype.getsuratasli = function (param) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/surat?id=' + param)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.surat = [];
+            for (var i = 0; i < data.data.length; i++) {
+                _this.surat.push(data.data[i]);
+            }
+        });
+    };
+    AsalasliPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-asalasli',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\asalasli\asalasli.html"*/'<ion-content>\n    <div *ngFor = "let i of surat">\n        <div><div class="info-surat-label"><b>Asal Surat</b></div><div class="info-surat-content">{{i.TEXT_ASAL_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Perihal</b></div><div class="info-surat-content">{{i.PERIHAL}}</div></div>\n        <div><div class="info-surat-label"><b>Tanggal Surat</b></div><div class="info-surat-content">{{i.TGL_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Nomor Surat</b></div><div class="info-surat-content">{{i.NO_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Nomor/Agenda</b></div><div class="info-surat-content">{{i.NO_AGENDA}}</div></div>\n        <div><div class="info-surat-label"><b>Sifat Surat</b></div><div class="info-surat-content">{{i.SIFAT_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Klasifikasi Surat</b></div><div class="info-surat-content">{{i.KECEPATAN_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Deskripsi</b></div><div class="info-surat-content">{{i.DESKRIPSI_SINGKAT}}</div></div>\n      </div>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\asalasli\asalasli.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], AsalasliPage);
+    return AsalasliPage;
+}());
+
+//# sourceMappingURL=asalasli.js.map
+
+/***/ }),
+
+/***/ 126:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatusasliPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var StatusasliPage = /** @class */ (function () {
+    function StatusasliPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.statusdata = [
+            { id: 1, name: 'Dalam Proses' },
+            { id: 2, name: 'Telah Selesai' }
+        ];
+        this.keterangan = this.getketerangan(this.idsurat.id, window.localStorage.getItem('kode_unor'));
+    }
+    StatusasliPage.prototype.itemTapped = function (a, b) {
+        console.log(this.idsurat.id);
+        var datastatus = {
+            id: this.idsurat.id,
+            id_user: window.localStorage.getItem('id'),
+            kode_unor: window.localStorage.getItem('kode_unor'),
+            status_penyelesaian: a,
+            catatan: b
+        };
+        this.http.post('http://103.40.94.42/wssurat/Api/statussuratmasuk', datastatus)
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.log(error + "Oooops!");
+        });
+    };
+    StatusasliPage.prototype.getketerangan = function (param, param2) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/disp?id=' + param + '&kode_unor=' + param2)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.ket = data.CATATAN;
+            _this.status = data.STATUS_PENYELESAIAN;
+            console.log(_this.ket);
+        });
+    };
+    StatusasliPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad StatusasliPage');
+    };
+    StatusasliPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-statusasli',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\statusasli\statusasli.html"*/'<ion-content padding>\n  <ion-label>Status Surat</ion-label>\n    <ion-select  [(ngModel)]="status">\n      <ion-option *ngFor="let i of statusdata" [value]="i.id">{{i.name}}</ion-option>\n    </ion-select>\n\n    <ion-label>Keterangan</ion-label>\n    <ion-textarea [(ngModel)]="ket" placeholder="Masukkan Keterangan"></ion-textarea>\n\n    <button ion-button full color="primary" type="submit" (click)="itemTapped(status,ket)">SIMPAN</button>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\statusasli\statusasli.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], StatusasliPage);
+    return StatusasliPage;
+}());
+
+//# sourceMappingURL=statusasli.js.map
+
+/***/ }),
+
+/***/ 127:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatusdispPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var StatusdispPage = /** @class */ (function () {
+    function StatusdispPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.statusdata = [
+            { id: 1, name: 'Dalam Proses' },
+            { id: 2, name: 'Telah Selesai' }
+        ];
+        this.keterangan = this.getketerangan(this.idsurat.id, window.localStorage.getItem('kode_unor'));
+    }
+    StatusdispPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad StatusdispPage');
+    };
+    StatusdispPage.prototype.itemTapped = function (a, b) {
+        console.log(this.idsurat.id);
+        var datastatus = {
+            id: this.idsurat.id,
+            id_user: window.localStorage.getItem('id'),
+            kode_unor: window.localStorage.getItem('kode_unor'),
+            status_penyelesaian: a,
+            catatan: b
+        };
+        // var headers = new Headers();
+        // headers.append('Access-Control-Allow-Origin' , '*');
+        // headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        // headers.append('Accept','application/json');
+        // headers.append('content-type','application/json');
+        // let options = new RequestOptions({ headers:headers});
+        this.http.post('http://103.40.94.42/wssurat/Api/statussuratmasuk', datastatus)
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.log(error + "Oooops!");
+        });
+    };
+    StatusdispPage.prototype.getketerangan = function (param, param2) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/disp2?id=' + param + '&kode_unor=' + param2)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.ket = data.CATATAN;
+            _this.status = data.STATUS_PENYELESAIAN;
+            console.log(_this.ket);
+        });
+    };
+    StatusdispPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-statusdisp',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\statusdisp\statusdisp.html"*/'<ion-content padding>\n    <ion-label>Status Surat</ion-label>\n    <ion-select  [(ngModel)]="status">\n      <ion-option *ngFor="let i of statusdata" [value]="i.id">{{i.name}}</ion-option>\n    </ion-select>\n\n    <ion-label>Keterangan</ion-label>\n    <ion-textarea [(ngModel)]="ket" placeholder="Masukkan Keterangan"></ion-textarea>\n\n    <button ion-button full color="primary" type="submit" (click)="itemTapped(status,ket)">SIMPAN</button>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\statusdisp\statusdisp.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], StatusdispPage);
+    return StatusdispPage;
+}());
+
+//# sourceMappingURL=statusdisp.js.map
+
+/***/ }),
+
+/***/ 128:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuratasliPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__surataslidetail_surataslidetail__ = __webpack_require__(129);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var SuratasliPage = /** @class */ (function () {
+    function SuratasliPage(navCtrl, navParams, http, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+            'american-football', 'boat', 'bluetooth', 'build'];
+        this.asli = this.getsuratasli();
+    }
+    SuratasliPage.prototype.showLoader = function () {
+        this.loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        this.loader.present();
+    };
+    SuratasliPage.prototype.hideLoader = function () {
+        if (this.loader)
+            this.loader.dismiss();
+    };
+    SuratasliPage.prototype.getsuratasli = function () {
+        var _this = this;
+        this.showLoader();
+        return this.http.get('http://103.40.94.42/wssurat/Api/suratmasukasli/page/1?kode_unor=' + window.localStorage.getItem('kode_unor')).subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.hideLoader();
+            _this.isi = [];
+            for (var i = 0; i < data.items.length; i++) {
+                if (data.items[i].TRKECEPATANSURAT_ID == 3) {
+                    _this.bground = '#f44336';
+                }
+                else if (data.items[i].TRKECEPATANSURAT_ID == 2) {
+                    _this.bground = '';
+                }
+                else {
+                    _this.bground = '';
+                }
+                _this.isi.push({
+                    perihal: data.items[i].PERIHAL,
+                    asalsurat: data.items[i].TEXT_ASAL_SURAT,
+                    tglsurat: data.items[i].TGL_SURAT,
+                    icon: _this.icons[Math.floor(Math.random() * _this.icons.length)],
+                    bg: _this.bground,
+                    id: data.items[i].ID,
+                    kec: data.items[i].TRKECEPATANSURAT_ID,
+                    sifat: data.items[i].TRSIFATSURAT_ID
+                });
+            }
+            console.log(_this.isi);
+        });
+    };
+    SuratasliPage.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__surataslidetail_surataslidetail__["a" /* SurataslidetailPage */], {
+            item: item
+        });
+    };
+    SuratasliPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SuratasliPage');
+    };
+    SuratasliPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-suratasli',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\suratasli\suratasli.html"*/'\n<ion-header>\n\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n    <ion-title>Surat Asli</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <button ion-item *ngFor="let tes of isi" (click)="itemTapped($event, tes)">\n      <div class="card">\n          <a>\n          <div class="row">\n            <div class="col col-90"><b>{{tes.perihal}}</b></div>\n              <div class="text-right"><h3>\n                <!-- <i class="ion ion-ios-cloud-download-outline positive" ng-click="df(tes.ID)"></i> -->\n                <i class="ion ion-android-arrow-dropdown-circle"></i>\n                </h3>\n              </div>\n          </div>\n          <div class="row">\n            <div class="col col-80">Unit Asal Surat :<br>{{tes.asalsurat}}</div>\n            <div class="col italic">{{tes.tglsurat}}</div>\n          </div>\n        </a>\n      </div>\n    </button>\n  </ion-list>  \n</ion-content>\n<ion-footer>\n    <ion-toolbar>\n        <button color="light" icon-start="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">\n            <ion-icon name="arrow-back" role="img" class="icon icon-ios ion-ios-arrow-back" aria-label="arrow back"></ion-icon>\n            Back\n          </span><div class="button-effect"></div></button>\n          <button end="" color="light" icon-end="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light" right=""><span class="button-inner">\n              Next\n              <ion-icon name="arrow-forward" role="img" class="icon icon-ios ion-ios-arrow-forward" aria-label="arrow forward"></ion-icon>\n            </span><div class="button-effect"></div></button>\n    </ion-toolbar>\n  </ion-footer>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\suratasli\suratasli.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], SuratasliPage);
+    return SuratasliPage;
+}());
+
+//# sourceMappingURL=suratasli.js.map
+
+/***/ }),
+
+/***/ 129:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurataslidetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__disposisiasli_disposisiasli__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__asalasli_asalasli__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__trackingasli_trackingasli__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__statusasli_statusasli__ = __webpack_require__(126);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var SurataslidetailPage = /** @class */ (function () {
+    function SurataslidetailPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.tab1 = __WEBPACK_IMPORTED_MODULE_2__disposisiasli_disposisiasli__["a" /* DisposisiasliPage */];
+        this.tab2 = __WEBPACK_IMPORTED_MODULE_3__asalasli_asalasli__["a" /* AsalasliPage */];
+        this.tab3 = __WEBPACK_IMPORTED_MODULE_4__trackingasli_trackingasli__["a" /* TrackingasliPage */];
+        this.tab4 = __WEBPACK_IMPORTED_MODULE_5__statusasli_statusasli__["a" /* StatusasliPage */];
+        this.idsurat = this.navParams.get('item');
+        console.log(this.idsurat);
+    }
+    SurataslidetailPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SurataslidetailPage');
+    };
+    SurataslidetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-surataslidetail',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\surataslidetail\surataslidetail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Surat Asli</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-tabs>\n        <ion-tab [root]="tab1" tabTitle="Disposisi" [rootParams]="idsurat"></ion-tab>\n        <ion-tab [root]="tab2" tabTitle="Asal Surat" [rootParams]="idsurat"></ion-tab>\n        <ion-tab [root]="tab3" tabTitle="Tracking Surat" [rootParams]="idsurat"></ion-tab>\n        <ion-tab [root]="tab4" tabTitle="Status Surat" [rootParams]="idsurat"></ion-tab>\n      </ion-tabs>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\surataslidetail\surataslidetail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], SurataslidetailPage);
+    return SurataslidetailPage;
+}());
+
+//# sourceMappingURL=surataslidetail.js.map
+
+/***/ }),
+
+/***/ 130:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackingasliPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TrackingasliPage = /** @class */ (function () {
+    function TrackingasliPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.temb = navParams.data;
+        console.log(this.temb.id);
+        this.tembusand = this.getdetailtembusan(this.temb.id);
+    }
+    TrackingasliPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TrackingasliPage');
+    };
+    TrackingasliPage.prototype.getdetailtembusan = function (param) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/trackingsurat?id=' + param)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.tracking = [];
+            _this.maxtracking = [];
+            _this.js = '';
+            _this.namaunker = '';
+            for (var i = 0; i < data.length; i++) {
+                _this.tracking.push(data[i]);
+                _this.maxtracking.push(Math.max(data[i]['ID']));
+                _this.maxtrack = Math.max.apply(Math, _this.maxtracking);
+                if (data[i].ID == _this.maxtrack) {
+                    _this.js = data[i].JENIS_SURAT;
+                    _this.namaunker = data[i].NAMA_UNIT_KERJA;
+                }
+            }
+            console.log(_this.maxtrack);
+        });
+    };
+    TrackingasliPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-trackingasli',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\trackingasli\trackingasli.html"*/'<ion-content>\n    <div class="bar bar-header bar-dark tembusan">\n        <div class=\'tembusan1\'>Status Terakhir : \n          <span *ngIf="js == 1" class="temb2">Surat Asli</span>\n          <span *ngIf="js == 2" class="temb2">Surat Tembusan</span>\n          <span *ngIf="js == 3" class="temb2">Surat Disposisi</span>\n          <br> \n            <div style="display: flex;"><div style="padding-left:32%; width: 46%">=<span class="ion-chevron-right" style="margin-right: 7px"></span></div><div style=" line-height: 15px;">{{namaunker}}</div></div></div>\n      </div>\n      <!-- surat asli -->\n      <ion-grid>\n        <ion-row responsive-sm *ngFor = "let trasli of tracking">\n          <ion-col col-5>\n            {{trasli.CREATED_DATE}}	\n          </ion-col>\n          <ion-col col-1>\n            <span *ngIf="trasli.JENIS_SURAT == 1"><div class="tembf"><ion-icon name="ios-flower" class="js1"></ion-icon></div></span>\n            <span *ngIf="trasli.JENIS_SURAT == 2"><div class="tembf"><ion-icon name="ios-flower" class="js2"></ion-icon></div></span>\n            <span *ngIf="trasli.JENIS_SURAT == 3"><div class="tembf"><ion-icon name="ios-flower" class="js3"></ion-icon></div></span>\n          </ion-col>\n          <ion-col>\n            <span *ngIf="trasli.JENIS_SURAT == 1">Surat Asli</span>\n            <span *ngIf="trasli.JENIS_SURAT == 2">Surat Tembusan</span>\n            <span *ngIf="trasli.JENIS_SURAT == 3">Surat Disposisi</span>\n           <br> {{trasli.NAMA_UNIT_KERJA}}</ion-col>\n        </ion-row>\n      </ion-grid>\n      \n      <div class="item no-border">\n        <br><br><br><br>\n      </div>\n\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\trackingasli\trackingasli.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], TrackingasliPage);
+    return TrackingasliPage;
+}());
+
+//# sourceMappingURL=trackingasli.js.map
+
+/***/ }),
+
+/***/ 131:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuratdisposisiPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__suratdisposisidetail_suratdisposisidetail__ = __webpack_require__(132);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var SuratdisposisiPage = /** @class */ (function () {
+    function SuratdisposisiPage(navCtrl, navParams, http, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.disposisi = this.getsuratdisposisi();
+    }
+    SuratdisposisiPage.prototype.showLoader = function () {
+        this.loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        this.loader.present();
+    };
+    SuratdisposisiPage.prototype.hideLoader = function () {
+        if (this.loader)
+            this.loader.dismiss();
+    };
+    SuratdisposisiPage.prototype.getsuratdisposisi = function () {
+        var _this = this;
+        this.showLoader();
+        return this.http.get('http://103.40.94.42/wssurat/Api/suratmasukdisposisi/page/1?kode_unor=' + window.localStorage.getItem('kode_unor')).subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.hideLoader();
+            _this.isi = [];
+            for (var i = 0; i < data.items.length; i++) {
+                if (data.items[i].TRKECEPATANSURAT_ID == 3) {
+                    _this.bground = '#f44336';
+                }
+                else if (data.items[i].TRKECEPATANSURAT_ID == 2) {
+                    _this.bground = '';
+                }
+                else {
+                    _this.bground = '';
+                }
+                _this.isi.push({
+                    perihal: data.items[i].PERIHAL,
+                    asalsurat: data.items[i].TEXT_ASAL_SURAT,
+                    tglsurat: data.items[i].TGL_SURAT,
+                    bg: _this.bground,
+                    id: data.items[i].ID,
+                    kec: data.items[i].TRKECEPATANSURAT_ID,
+                    sifat: data.items[i].TRSIFATSURAT_ID
+                });
+            }
+            console.log(_this.isi);
+        });
+    };
+    SuratdisposisiPage.prototype.itemTapped = function (event, item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__suratdisposisidetail_suratdisposisidetail__["a" /* SuratdisposisidetailPage */], {
+            item: item
+        });
+    };
+    SuratdisposisiPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SuratdisposisiPage');
+    };
+    SuratdisposisiPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-suratdisposisi',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\suratdisposisi\suratdisposisi.html"*/'<ion-header>\n\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n    <ion-title>Surat Disposisi</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <button ion-item *ngFor="let tes of isi" (click)="itemTapped($event, tes)">\n          <div class="card">\n              <a>\n              <div class="row">\n                <div class="col col-90"><b>{{tes.perihal}}</b></div>\n                  <div class="text-right"><h3>\n                    <!-- <i class="ion ion-ios-cloud-download-outline positive" ng-click="df(tes.ID)"></i> -->\n                    <i class="ion ion-android-arrow-dropdown-circle"></i>\n                    </h3>\n                  </div>\n              </div>\n              <div class="row">\n                <div class="col col-80">Unit Asal Surat :<br>{{tes.asalsurat}}</div>\n                <div class="col italic">{{tes.tglsurat}}</div>\n              </div>\n            </a>\n          </div>\n        </button>\n      </ion-list>  \n    </ion-content>\n    <ion-footer>\n      <ion-toolbar>\n          <button color="light" icon-start="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">\n              <ion-icon name="arrow-back" role="img" class="icon icon-ios ion-ios-arrow-back" aria-label="arrow back"></ion-icon>\n              Back\n            </span><div class="button-effect"></div></button>\n            <button end="" color="light" icon-end="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light" right=""><span class="button-inner">\n                Next\n                <ion-icon name="arrow-forward" role="img" class="icon icon-ios ion-ios-arrow-forward" aria-label="arrow forward"></ion-icon>\n              </span><div class="button-effect"></div></button>\n      </ion-toolbar>\n    </ion-footer>'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\suratdisposisi\suratdisposisi.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], SuratdisposisiPage);
+    return SuratdisposisiPage;
+}());
+
+//# sourceMappingURL=suratdisposisi.js.map
+
+/***/ }),
+
+/***/ 132:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuratdisposisidetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__disposisidisp_disposisidisp__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__asaldisp_asaldisp__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__trackingdisp_trackingdisp__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__statusdisp_statusdisp__ = __webpack_require__(127);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var SuratdisposisidetailPage = /** @class */ (function () {
+    function SuratdisposisidetailPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.tab1 = __WEBPACK_IMPORTED_MODULE_2__disposisidisp_disposisidisp__["a" /* DisposisidispPage */];
+        this.tab2 = __WEBPACK_IMPORTED_MODULE_3__asaldisp_asaldisp__["a" /* AsaldispPage */];
+        this.tab3 = __WEBPACK_IMPORTED_MODULE_4__trackingdisp_trackingdisp__["a" /* TrackingdispPage */];
+        this.tab4 = __WEBPACK_IMPORTED_MODULE_5__statusdisp_statusdisp__["a" /* StatusdispPage */];
+        this.iddisp = this.navParams.get('item');
+        console.log(this.iddisp);
+    }
+    SuratdisposisidetailPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SuratdisposisidetailPage');
+    };
+    SuratdisposisidetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-suratdisposisidetail',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\suratdisposisidetail\suratdisposisidetail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Surat Disposisi</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-tabs>\n        <ion-tab [root]="tab1" tabTitle="Disposisi" [rootParams]="iddisp"></ion-tab>\n        <ion-tab [root]="tab2" tabTitle="Asal Surat" [rootParams]="iddisp"></ion-tab>\n        <ion-tab [root]="tab3" tabTitle="Tracking Surat" [rootParams]="iddisp"></ion-tab>\n        <ion-tab [root]="tab4" tabTitle="Status Surat" [rootParams]="iddisp"></ion-tab>\n      </ion-tabs>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\suratdisposisidetail\suratdisposisidetail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], SuratdisposisidetailPage);
+    return SuratdisposisidetailPage;
+}());
+
+//# sourceMappingURL=suratdisposisidetail.js.map
+
+/***/ }),
+
+/***/ 133:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackingdispPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TrackingdispPage = /** @class */ (function () {
+    function TrackingdispPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.temb = navParams.data;
+        this.tembusand = this.getdetailtembusan(this.temb.id);
+    }
+    TrackingdispPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TrackingdispPage');
+    };
+    TrackingdispPage.prototype.getdetailtembusan = function (param) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/trackingsurat?id=' + param)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.tracking = [];
+            _this.maxtracking = [];
+            _this.js = '';
+            _this.namaunker = '';
+            for (var i = 0; i < data.length; i++) {
+                _this.tracking.push(data[i]);
+                _this.maxtracking.push(Math.max(data[i]['ID']));
+                _this.maxtrack = Math.max.apply(Math, _this.maxtracking);
+                if (data[i].ID == _this.maxtrack) {
+                    _this.js = data[i].JENIS_SURAT;
+                    _this.namaunker = data[i].NAMA_UNIT_KERJA;
+                }
+            }
+            console.log(_this.maxtrack);
+        });
+    };
+    TrackingdispPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-trackingdisp',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\trackingdisp\trackingdisp.html"*/'<ion-content padding>\n    <div class="bar bar-header bar-dark tembusan">\n        <div class=\'tembusan1\'>Status Terakhir : \n          <span *ngIf="js == 1" class="temb2">Surat Asli</span>\n          <span *ngIf="js == 2" class="temb2">Surat Tembusan</span>\n          <span *ngIf="js == 3" class="temb2">Surat Disposisi</span>\n          <br> \n            <div style="display: flex;"><div style="padding-left:32%; width: 46%">=<span class="ion-chevron-right" style="margin-right: 7px"></span></div><div style=" line-height: 15px;">{{namaunker}}</div></div></div>\n      </div>\n      <!-- surat asli -->\n      <ion-grid>\n        <ion-row responsive-sm *ngFor = "let trasli of tracking">\n          <ion-col col-5>\n            {{trasli.CREATED_DATE}}	\n          </ion-col>\n          <ion-col col-1>\n            <span *ngIf="trasli.JENIS_SURAT == 1"><div class="tembf"><ion-icon name="ios-flower" class="js1"></ion-icon></div></span>\n            <span *ngIf="trasli.JENIS_SURAT == 2"><div class="tembf"><ion-icon name="ios-flower" class="js2"></ion-icon></div></span>\n            <span *ngIf="trasli.JENIS_SURAT == 3"><div class="tembf"><ion-icon name="ios-flower" class="js3"></ion-icon></div></span>\n          </ion-col>\n          <ion-col>\n            <span *ngIf="trasli.JENIS_SURAT == 1">Surat Asli</span>\n            <span *ngIf="trasli.JENIS_SURAT == 2">Surat Tembusan</span>\n            <span *ngIf="trasli.JENIS_SURAT == 3">Surat Disposisi</span>\n           <br> {{trasli.NAMA_UNIT_KERJA}}</ion-col>\n        </ion-row>\n      </ion-grid>\n      \n      <div class="item no-border">\n        <br><br><br><br>\n      </div>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\trackingdisp\trackingdisp.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], TrackingdispPage);
+    return TrackingdispPage;
+}());
+
+//# sourceMappingURL=trackingdisp.js.map
+
+/***/ }),
+
+/***/ 134:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurattembusanPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__surattembusandetail_surattembusandetail__ = __webpack_require__(135);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var SurattembusanPage = /** @class */ (function () {
+    function SurattembusanPage(navCtrl, navParams, http, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.tembusan = this.getsurattembusan();
+    }
+    SurattembusanPage.prototype.showLoader = function () {
+        this.loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        this.loader.present();
+    };
+    SurattembusanPage.prototype.hideLoader = function () {
+        if (this.loader)
+            this.loader.dismiss();
+    };
+    SurattembusanPage.prototype.getsurattembusan = function () {
+        var _this = this;
+        this.showLoader();
+        return this.http.get('http://103.40.94.42/wssurat/Api/suratmasuktembusan/page/1?kode_unor=' + window.localStorage.getItem('kode_unor')).subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.hideLoader();
+            _this.isi = [];
+            for (var i = 0; i < data.items.length; i++) {
+                if (data.items[i].TRKECEPATANSURAT_ID == 3) {
+                    _this.bground = '#f44336';
+                }
+                else if (data.items[i].TRKECEPATANSURAT_ID == 2) {
+                    _this.bground = '';
+                }
+                else {
+                    _this.bground = '';
+                }
+                _this.isi.push({
+                    perihal: data.items[i].PERIHAL,
+                    asalsurat: data.items[i].TEXT_ASAL_SURAT,
+                    tglsurat: data.items[i].TGL_SURAT,
+                    bg: _this.bground,
+                    id: data.items[i].ID
+                });
+            }
+            console.log(_this.isi);
+        });
+    };
+    SurattembusanPage.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__surattembusandetail_surattembusandetail__["a" /* SurattembusandetailPage */], {
+            item: item
+        });
+    };
+    SurattembusanPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SurattembusanPage');
+    };
+    SurattembusanPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-surattembusan',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\surattembusan\surattembusan.html"*/'<ion-header>\n\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n    <ion-title>Surat Tembusan</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <button ion-item *ngFor="let tes of isi" (click)="itemTapped($event, tes.id)">\n          <div class="card">\n              <a>\n              <div class="row">\n                <div class="col col-90"><b>{{tes.perihal}}</b></div>\n                  <div class="text-right"><h3>\n                    <!-- <i class="ion ion-ios-cloud-download-outline positive" ng-click="df(tes.ID)"></i> -->\n                    <i class="ion ion-android-arrow-dropdown-circle"></i>\n                    </h3>\n                  </div>\n              </div>\n              <div class="row">\n                <div class="col col-80">Unit Asal Surat :<br>{{tes.asalsurat}}</div>\n                <div class="col italic">{{tes.tglsurat}}</div>\n              </div>\n            </a>\n          </div>\n        </button>\n      </ion-list>  \n    </ion-content>\n    <ion-footer>\n      <ion-toolbar>\n          <button color="light" icon-start="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">\n              <ion-icon name="arrow-back" role="img" class="icon icon-ios ion-ios-arrow-back" aria-label="arrow back"></ion-icon>\n              Back\n            </span><div class="button-effect"></div></button>\n            <button end="" color="light" icon-end="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light" right=""><span class="button-inner">\n                Next\n                <ion-icon name="arrow-forward" role="img" class="icon icon-ios ion-ios-arrow-forward" aria-label="arrow forward"></ion-icon>\n              </span><div class="button-effect"></div></button>\n      </ion-toolbar>\n    </ion-footer>\n    '/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\surattembusan\surattembusan.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], SurattembusanPage);
+    return SurattembusanPage;
+}());
+
+//# sourceMappingURL=surattembusan.js.map
+
+/***/ }),
+
+/***/ 135:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurattembusandetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SurattembusandetailPage = /** @class */ (function () {
+    function SurattembusandetailPage(navCtrl, navParams, http, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.temb = this.navParams.get('item');
+        console.log(this.temb);
+        this.tembusand = this.getdetailtembusan(this.temb);
+    }
+    SurattembusandetailPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SurattembusandetailPage');
+    };
+    SurattembusandetailPage.prototype.getdetailtembusan = function (param) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/trackingsurat?id=' + param)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.tracking = [];
+            _this.maxtracking = [];
+            _this.js = '';
+            _this.namaunker = '';
+            for (var i = 0; i < data.length; i++) {
+                _this.tracking.push(data[i]);
+                _this.maxtracking.push(Math.max(data[i]['ID']));
+                _this.maxtrack = Math.max.apply(Math, _this.maxtracking);
+                if (data[i].ID == _this.maxtrack) {
+                    _this.js = data[i].JENIS_SURAT;
+                    _this.namaunker = data[i].NAMA_UNIT_KERJA;
+                }
+            }
+            console.log(_this.maxtrack);
+        });
+    };
+    SurattembusandetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-surattembusandetail',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\surattembusandetail\surattembusandetail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Surat Tembusan</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n        <div class="bar bar-header bar-dark tembusan">\n          <div class=\'tembusan1\'>Status Terakhir : \n            <span *ngIf="js == 1" class="temb2">Surat Asli</span>\n            <span *ngIf="js == 2" class="temb2">Surat Tembusan</span>\n            <span *ngIf="js == 3" class="temb2">Surat Disposisi</span>\n            <br> \n              <div style="display: flex;"><div style="padding-left:32%; width: 46%">=<span class="ion-chevron-right" style="margin-right: 7px"></span></div><div style=" line-height: 15px;">{{namaunker}}</div></div></div>\n        </div>\n        <!-- surat asli -->\n        <ion-grid>\n          <ion-row responsive-sm *ngFor = "let trasli of tracking">\n            <ion-col col-5>\n              {{trasli.CREATED_DATE}}	\n            </ion-col>\n            <ion-col col-1>\n              <span *ngIf="trasli.JENIS_SURAT == 1"><div class="tembf"><ion-icon name="ios-flower" class="js1"></ion-icon></div></span>\n              <span *ngIf="trasli.JENIS_SURAT == 2"><div class="tembf"><ion-icon name="ios-flower" class="js2"></ion-icon></div></span>\n              <span *ngIf="trasli.JENIS_SURAT == 3"><div class="tembf"><ion-icon name="ios-flower" class="js3"></ion-icon></div></span>\n            </ion-col>\n            <ion-col>\n              <span *ngIf="trasli.JENIS_SURAT == 1">Surat Asli</span>\n              <span *ngIf="trasli.JENIS_SURAT == 2">Surat Tembusan</span>\n              <span *ngIf="trasli.JENIS_SURAT == 3">Surat Disposisi</span>\n             <br> {{trasli.NAMA_UNIT_KERJA}}</ion-col>\n          </ion-row>\n        </ion-grid>\n        \n        <div class="item no-border">\n          <br><br><br><br>\n        </div>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\surattembusandetail\surattembusandetail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], SurattembusandetailPage);
+    return SurattembusandetailPage;
+}());
+
+//# sourceMappingURL=surattembusandetail.js.map
+
+/***/ }),
+
+/***/ 147:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 147;
+
+/***/ }),
+
+/***/ 189:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/asalasli/asalasli.module": [
+		507,
+		22
+	],
+	"../pages/asaldisp/asaldisp.module": [
+		500,
+		21
+	],
+	"../pages/disposisiasli/disposisiasli.module": [
+		501,
+		20
+	],
+	"../pages/disposisidisp/disposisidisp.module": [
+		502,
+		19
+	],
+	"../pages/konsepcatatan/konsepcatatan.module": [
+		503,
+		18
+	],
+	"../pages/konsepinfo/konsepinfo.module": [
+		504,
+		17
+	],
+	"../pages/konsepsurat/konsepsurat.module": [
+		505,
+		4
+	],
+	"../pages/konsepsuratdetail/konsepsuratdetail.module": [
+		506,
+		16
+	],
+	"../pages/login/login.module": [
+		508,
+		15
+	],
+	"../pages/pengagendaan/pengagendaan.module": [
+		509,
+		3
+	],
+	"../pages/pengagendaanasal/pengagendaanasal.module": [
+		510,
+		2
+	],
+	"../pages/pengagendaandetail/pengagendaandetail.module": [
+		511,
+		1
+	],
+	"../pages/pengagendaanverifikasi/pengagendaanverifikasi.module": [
+		512,
+		0
+	],
+	"../pages/statusasli/statusasli.module": [
+		513,
+		14
+	],
+	"../pages/statusdisp/statusdisp.module": [
+		514,
+		13
+	],
+	"../pages/suratasli/suratasli.module": [
+		515,
+		12
+	],
+	"../pages/surataslidetail/surataslidetail.module": [
+		516,
+		11
+	],
+	"../pages/suratdisposisi/suratdisposisi.module": [
+		517,
+		10
+	],
+	"../pages/suratdisposisidetail/suratdisposisidetail.module": [
+		518,
+		9
+	],
+	"../pages/surattembusan/surattembusan.module": [
+		519,
+		8
+	],
+	"../pages/surattembusandetail/surattembusandetail.module": [
+		520,
+		7
+	],
+	"../pages/trackingasli/trackingasli.module": [
+		521,
+		6
+	],
+	"../pages/trackingdisp/trackingdisp.module": [
+		522,
+		5
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 189;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 366:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KonsepsuratPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__konsepsuratdetail_konsepsuratdetail__ = __webpack_require__(124);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var KonsepsuratPage = /** @class */ (function () {
+    function KonsepsuratPage(navCtrl, navParams, http, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+            'american-football', 'boat', 'bluetooth', 'build'];
+        this.konsep = this.getsuratkonsep();
+    }
+    KonsepsuratPage.prototype.showLoader = function () {
+        this.loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        this.loader.present();
+    };
+    KonsepsuratPage.prototype.hideLoader = function () {
+        if (this.loader)
+            this.loader.dismiss();
+    };
+    KonsepsuratPage.prototype.getsuratkonsep = function () {
+        var _this = this;
+        this.showLoader();
+        return this.http.get('http://103.40.94.42/wssurat/Api/suratkeluar/page/0?kode_unor=' + window.localStorage.getItem('kode_unor'))
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.hideLoader();
+            _this.isi = [];
+            for (var i = 0; i < data.items.length; i++) {
+                if (data.items[i].TRKECEPATANSURAT_ID == 3) {
+                    _this.bground = '#f44336';
+                }
+                else if (data.items[i].TRKECEPATANSURAT_ID == 2) {
+                    _this.bground = '';
+                }
+                else {
+                    _this.bground = '';
+                }
+                _this.isi.push({
+                    perihal: data.items[i].PERIHAL,
+                    klasifikasi: data.items[i].KLASIFIKASI_SURAT,
+                    tglsurat: data.items[i].CREATED_DATE,
+                    icon: _this.icons[Math.floor(Math.random() * _this.icons.length)],
+                    bg: _this.bground,
+                    id: data.items[i].ID,
+                    verifikasi: data.items[i].verifikasi,
+                    tujuan: data.items[i].TEXT_TUJUAN_SURAT
+                });
+            }
+            console.log(_this.isi);
+        });
+    };
+    KonsepsuratPage.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__konsepsuratdetail_konsepsuratdetail__["a" /* KonsepsuratdetailPage */], {
+            item: item
+        });
+    };
+    KonsepsuratPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad KonsepsuratPage');
+    };
+    KonsepsuratPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-konsepsurat',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\Konsepsurat\konsepsurat.html"*/'<ion-header>\n\n  <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu"></ion-icon>\n        </button>\n    <ion-title>Konsep Surat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <button ion-item *ngFor="let tes of isi" (click)="itemTapped($event, tes)">\n          <div class="card">\n              <a>\n              <div class="row">\n                <div class="col col-90"><b>{{tes.klasifikasi}}</b></div>\n                  <div class="text-right"><h3>\n                    <!-- <i class="ion ion-ios-cloud-download-outline positive" ng-click="df(tes.ID)"></i> -->\n                    <i class="ion ion-android-arrow-dropdown-circle"></i>\n                    </h3>\n                  </div>\n              </div>\n              <div class="row">\n                <div class="col col-80">Perihal Surat :<br>{{tes.perihal}}</div>\n                <div class="col italic">{{tes.tglsurat}}</div>\n              </div>\n              <div class="row">\n                <div class="col col-80">Tujuan Surat :<br>{{tes.tujuan}}</div>\n              </div>\n            </a>\n          </div>\n        </button>\n      </ion-list>  \n    </ion-content>\n    <ion-footer>\n      <ion-toolbar>\n          <button color="light" icon-start="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">\n              <ion-icon name="arrow-back" role="img" class="icon icon-ios ion-ios-arrow-back" aria-label="arrow back"></ion-icon>\n              Back\n            </span><div class="button-effect"></div></button>\n            <button end="" color="light" icon-end="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light" right=""><span class="button-inner">\n                Next\n                <ion-icon name="arrow-forward" role="img" class="icon icon-ios ion-ios-arrow-forward" aria-label="arrow forward"></ion-icon>\n              </span><div class="button-effect"></div></button>\n      </ion-toolbar>\n    </ion-footer>'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\Konsepsurat\konsepsurat.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], KonsepsuratPage);
+    return KonsepsuratPage;
+}());
+
+//# sourceMappingURL=Konsepsurat.js.map
+
+/***/ }),
+
+/***/ 367:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PengagendaanPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Pengagendaandetail_Pengagendaandetail__ = __webpack_require__(368);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var PengagendaanPage = /** @class */ (function () {
+    function PengagendaanPage(navCtrl, navParams, http, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+            'american-football', 'boat', 'bluetooth', 'build'];
+        this.asli = this.getagendasurat();
+        console.log('isi' + this.isi);
+    }
+    PengagendaanPage.prototype.showLoader = function () {
+        this.loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        this.loader.present();
+    };
+    PengagendaanPage.prototype.hideLoader = function () {
+        if (this.loader)
+            this.loader.dismiss();
+    };
+    PengagendaanPage.prototype.getagendasurat = function () {
+        var _this = this;
+        this.showLoader();
+        return this.http.get('http://103.40.94.42/wssurat/Api/suratasli/page/0').subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.hideLoader();
+            _this.isi = [];
+            for (var i = 0; i < data.items.length; i++) {
+                _this.isi.push({
+                    perihal: data.items[i].PERIHAL,
+                    asalsurat: data.items[i].TEXT_ASAL_SURAT,
+                    tglsurat: data.items[i].TGL_SURAT,
+                    icon: _this.icons[Math.floor(Math.random() * _this.icons.length)],
+                    id: data.items[i].ID,
+                    disp: data.items[i].disp
+                });
+            }
+            console.log(_this.isi);
+        });
+    };
+    PengagendaanPage.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__Pengagendaandetail_Pengagendaandetail__["a" /* PengagendaandetailPage */], {
+            item: item
+        });
+    };
+    PengagendaanPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PengagendaanPage');
+    };
+    PengagendaanPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-pengagendaan',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\Pengagendaan\pengagendaan.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Pengagendaan Surat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <button ion-item *ngFor="let tes of isi" (click)="itemTapped($event, tes)">\n      <div class="card">\n          <a>\n          <div class="row">\n            <div class="col col-90"><b>{{tes.perihal}}</b></div>\n              <div class="text-right"><h3>\n                <!-- <i class="ion ion-ios-cloud-download-outline positive" ng-click="df(tes.ID)"></i> -->\n                <i class="ion ion-android-arrow-dropdown-circle"></i>\n                </h3>\n              </div>\n          </div>\n          <div class="row">\n            <div class="col col-80">Unit Asal Surat :<br>{{tes.asalsurat}}</div>\n            <div class="col italic">{{tes.tglsurat}}</div>\n          </div>\n        </a>\n      </div>\n    </button>\n  </ion-list>  \n</ion-content>\n<ion-footer>\n    <ion-toolbar>\n        <button color="light" icon-start="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light"><span class="button-inner">\n            <ion-icon name="arrow-back" role="img" class="icon icon-ios ion-ios-arrow-back" aria-label="arrow back"></ion-icon>\n            Back\n          </span><div class="button-effect"></div></button>\n          <button end="" color="light" icon-end="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-light" right=""><span class="button-inner">\n              Next\n              <ion-icon name="arrow-forward" role="img" class="icon icon-ios ion-ios-arrow-forward" aria-label="arrow forward"></ion-icon>\n            </span><div class="button-effect"></div></button>\n    </ion-toolbar>\n  </ion-footer>'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\Pengagendaan\pengagendaan.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], PengagendaanPage);
+    return PengagendaanPage;
+}());
+
+//# sourceMappingURL=Pengagendaan.js.map
+
+/***/ }),
+
+/***/ 368:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PengagendaandetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Pengagendaanasal_Pengagendaanasal__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Pengagendaanverifikasi_Pengagendaanverifikasi__ = __webpack_require__(370);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var PengagendaandetailPage = /** @class */ (function () {
+    function PengagendaandetailPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.tab1 = __WEBPACK_IMPORTED_MODULE_2__Pengagendaanasal_Pengagendaanasal__["a" /* PengagendaanasalPage */];
+        this.tab2 = __WEBPACK_IMPORTED_MODULE_3__Pengagendaanverifikasi_Pengagendaanverifikasi__["a" /* PengagendaanverifikasiPage */];
+        this.idagenda = this.navParams.get('item');
+    }
+    PengagendaandetailPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PengagendaandetailPage');
+    };
+    PengagendaandetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-pengagendaandetail',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\Pengagendaandetail\pengagendaandetail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Pengagendaan</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-tabs>\n        <ion-tab [root]="tab1" tabTitle="Asal Surat" [rootParams]="idagenda"></ion-tab>\n        <ion-tab [root]="tab2" tabTitle="Verifikasi Surat" [rootParams]="idagenda"></ion-tab>\n      </ion-tabs>\n\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\Pengagendaandetail\pengagendaandetail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], PengagendaandetailPage);
+    return PengagendaandetailPage;
+}());
+
+//# sourceMappingURL=Pengagendaandetail.js.map
+
+/***/ }),
+
+/***/ 369:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PengagendaanasalPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PengagendaanasalPage = /** @class */ (function () {
+    function PengagendaanasalPage(navCtrl, navParams, http) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.idsurat = navParams.data;
+        this.surat1 = this.getagendasurat(this.idsurat.id);
+        console.log(this.idsurat.id);
+        console.log(this.getagendasurat(this.idsurat.id));
+    }
+    PengagendaanasalPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PengagendaanasalPage');
+    };
+    PengagendaanasalPage.prototype.getagendasurat = function (param) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/suratdetail?id=' + param)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.surat = [];
+            for (var i = 0; i < data.data.length; i++) {
+                _this.surat.push(data.data[i]);
+            }
+        });
+    };
+    PengagendaanasalPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-pengagendaanasal',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\Pengagendaanasal\pengagendaanasal.html"*/'<ion-content padding>\n    <div *ngFor = "let i of surat">\n        <div><div class="info-surat-label"><b>Asal Surat</b></div><div class="info-surat-content">{{i.TEXT_ASAL_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Perihal</b></div><div class="info-surat-content">{{i.PERIHAL}}</div></div>\n        <div><div class="info-surat-label"><b>Tanggal Surat</b></div><div class="info-surat-content">{{i.TGL_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Nomor Surat</b></div><div class="info-surat-content">{{i.NO_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Nomor/Agenda</b></div><div class="info-surat-content">{{i.NO_AGENDA}}</div></div>\n        <div><div class="info-surat-label"><b>Sifat Surat</b></div><div class="info-surat-content">{{i.SIFAT_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Klasifikasi Surat</b></div><div class="info-surat-content">{{i.KECEPATAN_SURAT}}</div></div>\n        <div><div class="info-surat-label"><b>Deskripsi</b></div><div class="info-surat-content">{{i.DESKRIPSI_SINGKAT}}</div></div>\n      </div>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\Pengagendaanasal\pengagendaanasal.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], PengagendaanasalPage);
+    return PengagendaanasalPage;
+}());
+
+//# sourceMappingURL=Pengagendaanasal.js.map
+
+/***/ }),
+
+/***/ 370:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PengagendaanverifikasiPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PengagendaanverifikasiPage = /** @class */ (function () {
+    function PengagendaanverifikasiPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.agenda = this.getagendasurat();
+        var itCategory = new TreeviewItem({
+            text: 'IT', value: 9,
+            children: [
+                {
+                    text: 'Programming', value: 91,
+                    children: [{
+                            text: 'Frontend', value: 911,
+                            children: [
+                                { text: 'Angular 1', value: 9111 },
+                                { text: 'Angular 2', value: 9112 },
+                                { text: 'ReactJS', value: 9113 }
+                            ]
+                        }, {
+                            text: 'Backend', value: 912,
+                            children: [
+                                { text: 'C#', value: 9121 },
+                                { text: 'Java', value: 9122 },
+                                { text: 'Python', value: 9123, checked: false }
+                            ]
+                        }]
+                },
+                {
+                    text: 'Networking', value: 92,
+                    children: [
+                        { text: 'Internet', value: 921 },
+                        { text: 'Security', value: 922 }
+                    ]
+                }
+            ]
+        });
+    }
+    PengagendaanverifikasiPage.prototype.getagendasurat = function (param, param1) {
+        var _this = this;
+        return this.http.get('http://103.40.94.42/wssurat/Api/verifikasiagenda?id=' + param + '&kode_unker=' + param1)
+            .subscribe(function (data) {
+            if (data === void 0) { data = []; }
+            _this.surat = [];
+            for (var i = 0; i < data.length; i++) {
+                _this.surat.push(data[i]);
+            }
+        });
+    };
+    PengagendaanverifikasiPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PengagendaanverifikasiPage');
+    };
+    PengagendaanverifikasiPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-pengagendaanverifikasi',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\Pengagendaanverifikasi\pengagendaanverifikasi.html"*/'<ion-content padding>\n    <ngx-treeview\n        [config]="config"\n        [items]="items"\n        (selectedChange)="onSelectedChange($event)"\n        (filterChange)="onFilterChange($event)">\n    </ngx-treeview>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\Pengagendaanverifikasi\pengagendaanverifikasi.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], PengagendaanverifikasiPage);
+    return PengagendaanverifikasiPage;
+}());
+
+//# sourceMappingURL=Pengagendaanverifikasi.js.map
+
+/***/ }),
+
+/***/ 371:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(393);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 393:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_charts__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_treeview__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_suratasli_suratasli__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_surattembusan_surattembusan__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_suratdisposisi_suratdisposisi__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_Konsepsurat_Konsepsurat__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_surataslidetail_surataslidetail__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_surattembusandetail_surattembusandetail__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_suratdisposisidetail_suratdisposisidetail__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_konsepsuratdetail_konsepsuratdetail__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_Pengagendaan_Pengagendaan__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_Pengagendaandetail_Pengagendaandetail__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_disposisiasli_disposisiasli__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_asalasli_asalasli__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_trackingasli_trackingasli__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_statusasli_statusasli__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_disposisidisp_disposisidisp__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_asaldisp_asaldisp__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_trackingdisp_trackingdisp__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_statusdisp_statusdisp__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_konsepinfo_konsepinfo__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_konsepcatatan_konsepcatatan__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_Pengagendaanasal_Pengagendaanasal__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_Pengagendaanverifikasi_Pengagendaanverifikasi__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_login_login__ = __webpack_require__(64);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_32__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_suratasli_suratasli__["a" /* SuratasliPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_surattembusan_surattembusan__["a" /* SurattembusanPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_suratdisposisi_suratdisposisi__["a" /* SuratdisposisiPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_Konsepsurat_Konsepsurat__["a" /* KonsepsuratPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_surataslidetail_surataslidetail__["a" /* SurataslidetailPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_disposisiasli_disposisiasli__["a" /* DisposisiasliPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_asalasli_asalasli__["a" /* AsalasliPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_trackingasli_trackingasli__["a" /* TrackingasliPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_statusasli_statusasli__["a" /* StatusasliPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_disposisidisp_disposisidisp__["a" /* DisposisidispPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_asaldisp_asaldisp__["a" /* AsaldispPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_trackingdisp_trackingdisp__["a" /* TrackingdispPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_statusdisp_statusdisp__["a" /* StatusdispPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_surattembusandetail_surattembusandetail__["a" /* SurattembusandetailPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_suratdisposisidetail_suratdisposisidetail__["a" /* SuratdisposisidetailPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_konsepsuratdetail_konsepsuratdetail__["a" /* KonsepsuratdetailPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_konsepinfo_konsepinfo__["a" /* KonsepinfoPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_konsepcatatan_konsepcatatan__["a" /* KonsepcatatanPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_Pengagendaan_Pengagendaan__["a" /* PengagendaanPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_Pengagendaandetail_Pengagendaandetail__["a" /* PengagendaandetailPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_Pengagendaanasal_Pengagendaanasal__["a" /* PengagendaanasalPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_Pengagendaanverifikasi_Pengagendaanverifikasi__["a" /* PengagendaanverifikasiPage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/asaldisp/asaldisp.module#AsaldispPageModule', name: 'AsaldispPage', segment: 'asaldisp', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/disposisiasli/disposisiasli.module#DisposisiasliPageModule', name: 'DisposisiasliPage', segment: 'disposisiasli', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/disposisidisp/disposisidisp.module#DisposisidispPageModule', name: 'DisposisidispPage', segment: 'disposisidisp', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/konsepcatatan/konsepcatatan.module#KonsepcatatanPageModule', name: 'KonsepcatatanPage', segment: 'konsepcatatan', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/konsepinfo/konsepinfo.module#KonsepinfoPageModule', name: 'KonsepinfoPage', segment: 'konsepinfo', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/konsepsurat/konsepsurat.module#KonsepsuratPageModule', name: 'KonsepsuratPage', segment: 'konsepsurat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/konsepsuratdetail/konsepsuratdetail.module#KonsepsuratdetailPageModule', name: 'KonsepsuratdetailPage', segment: 'konsepsuratdetail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/asalasli/asalasli.module#AsalasliPageModule', name: 'AsalasliPage', segment: 'asalasli', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pengagendaan/pengagendaan.module#PengagendaanPageModule', name: 'PengagendaanPage', segment: 'pengagendaan', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pengagendaanasal/pengagendaanasal.module#PengagendaanasalPageModule', name: 'PengagendaanasalPage', segment: 'pengagendaanasal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pengagendaandetail/pengagendaandetail.module#PengagendaandetailPageModule', name: 'PengagendaandetailPage', segment: 'pengagendaandetail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pengagendaanverifikasi/pengagendaanverifikasi.module#PengagendaanverifikasiPageModule', name: 'PengagendaanverifikasiPage', segment: 'pengagendaanverifikasi', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/statusasli/statusasli.module#StatusasliPageModule', name: 'StatusasliPage', segment: 'statusasli', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/statusdisp/statusdisp.module#StatusdispPageModule', name: 'StatusdispPage', segment: 'statusdisp', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/suratasli/suratasli.module#SuratasliPageModule', name: 'SuratasliPage', segment: 'suratasli', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/surataslidetail/surataslidetail.module#SurataslidetailPageModule', name: 'SurataslidetailPage', segment: 'surataslidetail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/suratdisposisi/suratdisposisi.module#SuratdisposisiPageModule', name: 'SuratdisposisiPage', segment: 'suratdisposisi', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/suratdisposisidetail/suratdisposisidetail.module#SuratdisposisidetailPageModule', name: 'SuratdisposisidetailPage', segment: 'suratdisposisidetail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/surattembusan/surattembusan.module#SurattembusanPageModule', name: 'SurattembusanPage', segment: 'surattembusan', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/surattembusandetail/surattembusandetail.module#SurattembusandetailPageModule', name: 'SurattembusandetailPage', segment: 'surattembusandetail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/trackingasli/trackingasli.module#TrackingasliPageModule', name: 'TrackingasliPage', segment: 'trackingasli', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/trackingdisp/trackingdisp.module#TrackingdispPageModule', name: 'TrackingdispPage', segment: 'trackingdisp', priority: 'low', defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_4_ng2_charts__["ChartsModule"],
+                __WEBPACK_IMPORTED_MODULE_5_ngx_treeview__["a" /* TreeviewModule */].forRoot()
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_32__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_suratasli_suratasli__["a" /* SuratasliPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_suratdisposisi_suratdisposisi__["a" /* SuratdisposisiPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_surattembusan_surattembusan__["a" /* SurattembusanPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_Konsepsurat_Konsepsurat__["a" /* KonsepsuratPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_surataslidetail_surataslidetail__["a" /* SurataslidetailPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_disposisiasli_disposisiasli__["a" /* DisposisiasliPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_asalasli_asalasli__["a" /* AsalasliPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_trackingasli_trackingasli__["a" /* TrackingasliPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_statusasli_statusasli__["a" /* StatusasliPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_disposisidisp_disposisidisp__["a" /* DisposisidispPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_asaldisp_asaldisp__["a" /* AsaldispPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_trackingdisp_trackingdisp__["a" /* TrackingdispPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_statusdisp_statusdisp__["a" /* StatusdispPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_surattembusandetail_surattembusandetail__["a" /* SurattembusandetailPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_suratdisposisidetail_suratdisposisidetail__["a" /* SuratdisposisidetailPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_konsepsuratdetail_konsepsuratdetail__["a" /* KonsepsuratdetailPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_konsepinfo_konsepinfo__["a" /* KonsepinfoPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_konsepcatatan_konsepcatatan__["a" /* KonsepcatatanPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_Pengagendaan_Pengagendaan__["a" /* PengagendaanPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_Pengagendaandetail_Pengagendaandetail__["a" /* PengagendaandetailPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_Pengagendaanasal_Pengagendaanasal__["a" /* PengagendaanasalPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_Pengagendaanverifikasi_Pengagendaanverifikasi__["a" /* PengagendaanverifikasiPage */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] }
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 469:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": 236,
+	"./af.js": 236,
+	"./ar": 237,
+	"./ar-dz": 238,
+	"./ar-dz.js": 238,
+	"./ar-kw": 239,
+	"./ar-kw.js": 239,
+	"./ar-ly": 240,
+	"./ar-ly.js": 240,
+	"./ar-ma": 241,
+	"./ar-ma.js": 241,
+	"./ar-sa": 242,
+	"./ar-sa.js": 242,
+	"./ar-tn": 243,
+	"./ar-tn.js": 243,
+	"./ar.js": 237,
+	"./az": 244,
+	"./az.js": 244,
+	"./be": 245,
+	"./be.js": 245,
+	"./bg": 246,
+	"./bg.js": 246,
+	"./bm": 247,
+	"./bm.js": 247,
+	"./bn": 248,
+	"./bn.js": 248,
+	"./bo": 249,
+	"./bo.js": 249,
+	"./br": 250,
+	"./br.js": 250,
+	"./bs": 251,
+	"./bs.js": 251,
+	"./ca": 252,
+	"./ca.js": 252,
+	"./cs": 253,
+	"./cs.js": 253,
+	"./cv": 254,
+	"./cv.js": 254,
+	"./cy": 255,
+	"./cy.js": 255,
+	"./da": 256,
+	"./da.js": 256,
+	"./de": 257,
+	"./de-at": 258,
+	"./de-at.js": 258,
+	"./de-ch": 259,
+	"./de-ch.js": 259,
+	"./de.js": 257,
+	"./dv": 260,
+	"./dv.js": 260,
+	"./el": 261,
+	"./el.js": 261,
+	"./en-au": 262,
+	"./en-au.js": 262,
+	"./en-ca": 263,
+	"./en-ca.js": 263,
+	"./en-gb": 264,
+	"./en-gb.js": 264,
+	"./en-ie": 265,
+	"./en-ie.js": 265,
+	"./en-il": 266,
+	"./en-il.js": 266,
+	"./en-nz": 267,
+	"./en-nz.js": 267,
+	"./eo": 268,
+	"./eo.js": 268,
+	"./es": 269,
+	"./es-do": 270,
+	"./es-do.js": 270,
+	"./es-us": 271,
+	"./es-us.js": 271,
+	"./es.js": 269,
+	"./et": 272,
+	"./et.js": 272,
+	"./eu": 273,
+	"./eu.js": 273,
+	"./fa": 274,
+	"./fa.js": 274,
+	"./fi": 275,
+	"./fi.js": 275,
+	"./fo": 276,
+	"./fo.js": 276,
+	"./fr": 277,
+	"./fr-ca": 278,
+	"./fr-ca.js": 278,
+	"./fr-ch": 279,
+	"./fr-ch.js": 279,
+	"./fr.js": 277,
+	"./fy": 280,
+	"./fy.js": 280,
+	"./gd": 281,
+	"./gd.js": 281,
+	"./gl": 282,
+	"./gl.js": 282,
+	"./gom-latn": 283,
+	"./gom-latn.js": 283,
+	"./gu": 284,
+	"./gu.js": 284,
+	"./he": 285,
+	"./he.js": 285,
+	"./hi": 286,
+	"./hi.js": 286,
+	"./hr": 287,
+	"./hr.js": 287,
+	"./hu": 288,
+	"./hu.js": 288,
+	"./hy-am": 289,
+	"./hy-am.js": 289,
+	"./id": 290,
+	"./id.js": 290,
+	"./is": 291,
+	"./is.js": 291,
+	"./it": 292,
+	"./it.js": 292,
+	"./ja": 293,
+	"./ja.js": 293,
+	"./jv": 294,
+	"./jv.js": 294,
+	"./ka": 295,
+	"./ka.js": 295,
+	"./kk": 296,
+	"./kk.js": 296,
+	"./km": 297,
+	"./km.js": 297,
+	"./kn": 298,
+	"./kn.js": 298,
+	"./ko": 299,
+	"./ko.js": 299,
+	"./ky": 300,
+	"./ky.js": 300,
+	"./lb": 301,
+	"./lb.js": 301,
+	"./lo": 302,
+	"./lo.js": 302,
+	"./lt": 303,
+	"./lt.js": 303,
+	"./lv": 304,
+	"./lv.js": 304,
+	"./me": 305,
+	"./me.js": 305,
+	"./mi": 306,
+	"./mi.js": 306,
+	"./mk": 307,
+	"./mk.js": 307,
+	"./ml": 308,
+	"./ml.js": 308,
+	"./mn": 309,
+	"./mn.js": 309,
+	"./mr": 310,
+	"./mr.js": 310,
+	"./ms": 311,
+	"./ms-my": 312,
+	"./ms-my.js": 312,
+	"./ms.js": 311,
+	"./mt": 313,
+	"./mt.js": 313,
+	"./my": 314,
+	"./my.js": 314,
+	"./nb": 315,
+	"./nb.js": 315,
+	"./ne": 316,
+	"./ne.js": 316,
+	"./nl": 317,
+	"./nl-be": 318,
+	"./nl-be.js": 318,
+	"./nl.js": 317,
+	"./nn": 319,
+	"./nn.js": 319,
+	"./pa-in": 320,
+	"./pa-in.js": 320,
+	"./pl": 321,
+	"./pl.js": 321,
+	"./pt": 322,
+	"./pt-br": 323,
+	"./pt-br.js": 323,
+	"./pt.js": 322,
+	"./ro": 324,
+	"./ro.js": 324,
+	"./ru": 325,
+	"./ru.js": 325,
+	"./sd": 326,
+	"./sd.js": 326,
+	"./se": 327,
+	"./se.js": 327,
+	"./si": 328,
+	"./si.js": 328,
+	"./sk": 329,
+	"./sk.js": 329,
+	"./sl": 330,
+	"./sl.js": 330,
+	"./sq": 331,
+	"./sq.js": 331,
+	"./sr": 332,
+	"./sr-cyrl": 333,
+	"./sr-cyrl.js": 333,
+	"./sr.js": 332,
+	"./ss": 334,
+	"./ss.js": 334,
+	"./sv": 335,
+	"./sv.js": 335,
+	"./sw": 336,
+	"./sw.js": 336,
+	"./ta": 337,
+	"./ta.js": 337,
+	"./te": 338,
+	"./te.js": 338,
+	"./tet": 339,
+	"./tet.js": 339,
+	"./tg": 340,
+	"./tg.js": 340,
+	"./th": 341,
+	"./th.js": 341,
+	"./tl-ph": 342,
+	"./tl-ph.js": 342,
+	"./tlh": 343,
+	"./tlh.js": 343,
+	"./tr": 344,
+	"./tr.js": 344,
+	"./tzl": 345,
+	"./tzl.js": 345,
+	"./tzm": 346,
+	"./tzm-latn": 347,
+	"./tzm-latn.js": 347,
+	"./tzm.js": 346,
+	"./ug-cn": 348,
+	"./ug-cn.js": 348,
+	"./uk": 349,
+	"./uk.js": 349,
+	"./ur": 350,
+	"./ur.js": 350,
+	"./uz": 351,
+	"./uz-latn": 352,
+	"./uz-latn.js": 352,
+	"./uz.js": 351,
+	"./vi": 353,
+	"./vi.js": 353,
+	"./x-pseudo": 354,
+	"./x-pseudo.js": 354,
+	"./yo": 355,
+	"./yo.js": 355,
+	"./zh-cn": 356,
+	"./zh-cn.js": 356,
+	"./zh-hk": 357,
+	"./zh-hk.js": 357,
+	"./zh-tw": 358,
+	"./zh-tw.js": 358
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 469;
+
+/***/ }),
+
+/***/ 492:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_suratasli_suratasli__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_surattembusan_surattembusan__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_suratdisposisi_suratdisposisi__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_Konsepsurat_Konsepsurat__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_Pengagendaan_Pengagendaan__ = __webpack_require__(367);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+// import { ListPage } from '../pages/list/list';
+
+
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen, events) {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.events = events;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
+        this.initializeApp();
+        this.checkPreviousAuthorization();
+        events.subscribe('user:created', function (user, time) {
+            // user and time are the same arguments passed in `events.publish(user, time)`
+            console.log('Welcome', user, 'at', time);
+        });
+        // used for an example of ngFor and navigation
+        console.log(window.localStorage.getItem('verifikator'));
+        if (parseInt(window.localStorage.getItem('verifikator')) == 1) {
+            this.pages = [
+                { title: 'Dashboard', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], icon: 'home' },
+                { title: 'Pengagendaan', component: __WEBPACK_IMPORTED_MODULE_10__pages_Pengagendaan_Pengagendaan__["a" /* PengagendaanPage */], icon: 'home' },
+                { title: 'Surat Asli', component: __WEBPACK_IMPORTED_MODULE_6__pages_suratasli_suratasli__["a" /* SuratasliPage */], icon: 'mail' },
+                { title: 'Surat Tembusan', component: __WEBPACK_IMPORTED_MODULE_7__pages_surattembusan_surattembusan__["a" /* SurattembusanPage */], icon: 'copy' },
+                { title: 'Surat Disposisi', component: __WEBPACK_IMPORTED_MODULE_8__pages_suratdisposisi_suratdisposisi__["a" /* SuratdisposisiPage */], icon: 'archive' },
+                { title: 'Konsep Surat', component: __WEBPACK_IMPORTED_MODULE_9__pages_Konsepsurat_Konsepsurat__["a" /* KonsepsuratPage */], icon: 'create' },
+            ];
+        }
+        else {
+            this.pages = [
+                { title: 'Dashboard', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], icon: 'home' },
+                { title: 'Surat Asli', component: __WEBPACK_IMPORTED_MODULE_6__pages_suratasli_suratasli__["a" /* SuratasliPage */], icon: 'mail' },
+                { title: 'Surat Tembusan', component: __WEBPACK_IMPORTED_MODULE_7__pages_surattembusan_surattembusan__["a" /* SurattembusanPage */], icon: 'copy' },
+                { title: 'Surat Disposisi', component: __WEBPACK_IMPORTED_MODULE_8__pages_suratdisposisi_suratdisposisi__["a" /* SuratdisposisiPage */], icon: 'archive' },
+                { title: 'Konsep Surat', component: __WEBPACK_IMPORTED_MODULE_9__pages_Konsepsurat_Konsepsurat__["a" /* KonsepsuratPage */], icon: 'create' },
+            ];
+        }
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    };
+    MyApp.prototype.checkPreviousAuthorization = function () {
+        if ((window.localStorage.getItem('username') === "undefined" || window.localStorage.getItem('username') === null) &&
+            (window.localStorage.getItem('password') === "undefined" || window.localStorage.getItem('password') === null)) {
+            this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
+        }
+        else {
+            this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\app\app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        <ion-icon name="{{p.icon}}" item-left></ion-icon> {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\app\app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(13);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, http, navParams, formBuilder, loadingCtrl, toastCtrl, events) {
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+        this.events = events;
+        this.authForm = formBuilder.group({
+            username: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].minLength(6), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].maxLength(30)])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].minLength(6)])]
+        });
+    }
+    LoginPage.prototype.createUser = function (user) {
+        console.log('User created!');
+        this.events.publish('user:created', user, Date.now());
+    };
+    LoginPage.prototype.showLoader = function () {
+        this.loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        this.loader.present();
+    };
+    LoginPage.prototype.hideLoader = function () {
+        if (this.loader)
+            this.loader.dismiss();
+    };
+    LoginPage.prototype.showToast = function () {
+        var toast = this.toastCtrl.create({
+            message: 'Username atau Password salah',
+            duration: 3000,
+            position: 'top'
+        });
+        toast.present();
+    };
+    LoginPage.prototype.hideToast = function () {
+        if (this.toast)
+            this.toast.dismiss();
+    };
+    LoginPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LoginPage');
+    };
+    LoginPage.prototype.onSubmit = function (value) {
+        var _this = this;
+        // loading.present();
+        this.showLoader();
+        if (this.authForm.valid) {
+            this.http.get('http://portalsso.basarnas.go.id/api/login?username=' + value.username + '&password=' + value.password)
+                .subscribe(function (data) {
+                if (data === void 0) { data = {}; }
+                console.log(data.USERID);
+                if (value.username == data.USERID) {
+                    window.localStorage.setItem('nama', data.NAMA_LENGKAP);
+                    _this.http.get('http://103.40.94.42/wssurat/Api/user')
+                        .subscribe(function (data1) {
+                        if (data1 === void 0) { data1 = {}; }
+                        console.log(data1);
+                        for (var i = 0; i < data1.length; i++) {
+                            if (data1[i].USERID == value.username && data1[i].TRGROUP_ID == 3) {
+                                _this.hideLoader();
+                                // loading.dismiss();
+                                window.localStorage.setItem('username', value.username);
+                                window.localStorage.setItem('password', value.password);
+                                window.localStorage.setItem('kode_unor', data1[i].KODE_UNOR);
+                                window.localStorage.setItem('id', data1[i].ID);
+                                window.localStorage.setItem('verifikator', data1[i].IS_VERIFIKATOR);
+                                window.localStorage.setItem('kode_unker', data1[i].KODE_UNKER);
+                                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+                            }
+                        }
+                    }, function (err) {
+                        // loading.dismiss();
+                        _this.hideLoader();
+                    });
+                }
+            }, function (err) {
+                // loading.dismiss();
+                _this.hideLoader();
+                _this.showToast();
+            });
+        }
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-login',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\login\login.html"*/'\n<ion-header>\n\n  <!-- <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar> -->\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input formControlName="username" type="text"></ion-input>\n    </ion-item>\n  \n    <ion-item *ngIf="authForm.controls.username.hasError(\'required\') && authForm.controls.username.touched">\n      <p>Sorry, field username is required!</p>\n  </ion-item>\n<ion-item *ngIf="authForm.controls.username.hasError(\'required\') && authForm.controls.username.touched">\n      <p>Sorry, field username is required!</p>\n  </ion-item>\n  <ion-item *ngIf="authForm.controls.username.hasError(\'pattern\') && authForm.controls.username.touched">\n      <p>Sorry, only small and capital letters are allowed!</p>\n  </ion-item>        \n  <ion-item *ngIf="authForm.controls.username.hasError(\'minlength\') && authForm.controls.username.touched">\n      <p>Sorry, minimum username length is 8!</p>\n  </ion-item>\n  <ion-item *ngIf="authForm.controls.username.hasError(\'maxlength\') && authForm.controls.username.touched">\n      <p>Sorry, maximum username length is 30!</p>\n  </ion-item>\n\n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input formControlName="password" type="password"></ion-input>\n    </ion-item>\n\n    <ion-item *ngIf="authForm.controls.password.hasError(\'required\') && authForm.controls.password.touched">\n      <p>Sorry, field password is required!</p>\n  </ion-item>\n  <ion-item *ngIf="authForm.controls.password.hasError(\'minlength\') && authForm.controls.password.touched">\n      <p>Sorry, minimum password length is 8!</p>\n  </ion-item>   \n    <button ion-button full color="primary" [disabled]="!authForm.valid" type="submit">M A S U K</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\login\login.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 93:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(64);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(navCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
+        //======================================================
+        // ionViewDidLoad() {
+        this.barChartOptions = {
+            scaleShowVerticalLines: false,
+            responsive: true
+        };
+        this.barChartLabels = ['Januari', 'Februari', 'Maret', 'April'];
+        this.barChartType = 'bar';
+        this.barChartLegend = true;
+        // this.http.get('http://103.40.94.42/wssurat/Api/getDashboard?kode_unor='+window.localStorage.getItem('kode_unor'))
+        //   .subscribe(data => {
+        //   })
+        this.barChartData = [
+            { data: [65, 59, 80, 81, 56, 55, 40], label: 'Surat Asli' },
+            { data: [28, 48, 40, 19, 86, 27, 90], label: 'Surat Tembusan' },
+            { data: [28, 48, 40, 19, 86, 27, 90], label: 'Surat Disposisi' }
+        ];
+    }
+    // ionViewDidLoad() {
+    //   this.barChart = new Chart(this.barCanvas.nativeElement, {
+    //       type: 'bar',
+    //       data: {
+    //           labels: ["Red", "Blue", "Yellow", "Green"],
+    //           datasets: [{
+    //             label: [
+    //               'green',
+    //               'yellow',
+    //               'red',
+    //               'purple',
+    //               'blue',
+    //           ],
+    //               data: [12, 19, 3, 5, 2, 3],
+    //               backgroundColor: [
+    //                   'rgba(255, 99, 132, 0.2)',
+    //                   'rgba(54, 162, 235, 0.2)',
+    //                   'rgba(255, 206, 86, 0.2)',
+    //                   'rgba(75, 192, 192, 0.2)',
+    //                   'rgba(153, 102, 255, 0.2)',
+    //                   'rgba(255, 159, 64, 0.2)'
+    //               ],
+    //               borderColor: [
+    //                   'rgba(255,99,132,1)',
+    //                   'rgba(54, 162, 235, 1)',
+    //                   'rgba(255, 206, 86, 1)',
+    //                   'rgba(75, 192, 192, 1)',
+    //                   'rgba(153, 102, 255, 1)',
+    //                   'rgba(255, 159, 64, 1)'
+    //               ],
+    //               borderWidth: 1
+    //           }]
+    //       },
+    //       options: {
+    //           scales: {
+    //               yAxes: [{
+    //                   ticks: {
+    //                       beginAtZero:true
+    //                   }
+    //               }]
+    //           }
+    //       }
+    //   });
+    // }
+    HomePage.prototype.goToLogout = function () {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: 'Confirm Exit',
+            message: 'Are you want to exit,' + window.localStorage.getItem('nama'),
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel');
+                    }
+                },
+                {
+                    text: 'OK',
+                    handler: function () {
+                        window.localStorage.removeItem('username');
+                        window.localStorage.removeItem('password');
+                        window.localStorage.removeItem('nama');
+                        window.localStorage.removeItem('kode_unor');
+                        window.localStorage.removeItem('kode_unker');
+                        window.localStorage.removeItem('id');
+                        window.localStorage.removeItem('verifikator');
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
+                        _this.navCtrl.popToRoot();
+                        console.log('OK');
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    // events
+    HomePage.prototype.chartClicked = function (e) {
+        console.log(e);
+    };
+    HomePage.prototype.chartHovered = function (e) {
+        console.log(e);
+    };
+    HomePage.prototype.randomize = function () {
+        // Only Change 3 values
+        var data = [
+            Math.round(Math.random() * 100),
+            59,
+            80,
+            (Math.random() * 100),
+            56,
+            (Math.random() * 100),
+            40
+        ];
+        var clone = JSON.parse(JSON.stringify(this.barChartData));
+        clone[0].data = data;
+        this.barChartData = clone;
+        /**
+         * (My guess), for Angular to recognize the change in the dataset
+         * it has to change the dataset variable directly,
+         * so one way around it, is to clone the data, change it and then
+         * assign it;
+         */
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('barCanvas'),
+        __metadata("design:type", Object)
+    ], HomePage.prototype, "barCanvas", void 0);
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-home',template:/*ion-inline-start:"D:\Project\persuratan\iosv2\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Dashboard</ion-title>\n\n    <ion-buttons end="" class="bar-buttons bar-buttons-md">\n      <button icon-only="" ion-button="" class="bar-button bar-button-md bar-button-default bar-button-default-md" (click)="goToLogout()"><span class="button-inner">\n        <ion-icon ios="ios-log-in" md="md-log-in" role="img" class="icon icon-md ion-md-log-in" aria-label="options"></ion-icon>\n      </span><div class="button-effect" style="transform: translate3d(-20px, -14px, 0px) scale(1); height: 64px; width: 64px; opacity: 0; transition: transform 260ms ease 0s, opacity 182ms ease 78ms;"></div></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <!-- <ion-card>\n        <ion-card-header>\n          Bar Chart\n        </ion-card-header>\n        <ion-card-content>\n          <canvas #barCanvas></canvas>\n        </ion-card-content>\n      </ion-card> -->\n      <canvas baseChart\n              [datasets]="barChartData"\n              [labels]="barChartLabels"\n              [options]="barChartOptions"\n              [legend]="barChartLegend"\n              [chartType]="barChartType"\n              (chartHover)="chartHovered($event)"\n              (chartClick)="chartClicked($event)"\n              height="375%"></canvas>\n</ion-content>\n'/*ion-inline-end:"D:\Project\persuratan\iosv2\src\pages\home\home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ })
+
+},[371]);
+//# sourceMappingURL=main.js.map

@@ -1,0 +1,303 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, ItemGroup } from 'ionic-angular';
+import { HttpClient} from '@angular/common/http';
+import { LoginPage } from '../login/login';
+import { LoadingController } from 'ionic-angular';
+import { SurataslidetailPage } from '../surataslidetail/surataslidetail';
+import { AlertController } from 'ionic-angular';
+import { OneSignal,OSNotificationPayload  } from '@ionic-native/onesignal';
+// import 'rxjs/add/operator/map';
+
+@IonicPage()
+@Component({
+  selector: 'page-suratasli',
+  templateUrl: 'suratasli.html',
+})
+export class SuratasliPage {
+
+  asli: {};
+  bground:string;
+  tulisan:string;
+  loader: any;
+  nCnt: number = 0;
+  pagenumber: number = 0;
+  mata:any;
+  tanggal:any;
+  toggle:any;
+  iddata:any;
+  kode:any;
+  tes1:any;
+  zipped: boolean = true;
+  click: boolean = true;
+  pagecount:any;
+  teks :any;
+  teks2 :any;
+  isisurat:any;
+  kode_unor:any;
+  // asli_item: string[];
+
+  selectedItem: any;
+  icons: string[];
+  items: Array<{title: string, note: string, icon: string}>;
+  isi: Array<{
+    perihal: string, 
+    asalsurat: string, 
+    tglsurat:string, 
+    icon: string,
+    bg:string,
+    tls:string,
+    id:string,
+    kec:string,
+    sifat:string,
+    disp:string,
+    kode:string
+  }>;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public http: HttpClient,public loadingCtrl: LoadingController,
+    public alertCtrl:AlertController, public oneSignal: OneSignal) {
+     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+     'american-football', 'boat', 'bluetooth', 'build'];
+    //  this.nextpage();
+     console.log(this.nCnt);
+
+    this.getdatasurat(this.nCnt,window.localStorage.getItem('kode_unor'));
+    this.plhpilih();
+
+    if(this.nCnt == 0){
+      this.teks2 = "hilang";
+    }else{
+      this.teks2 = "ada";
+    }
+
+      this.plhpilih().then(data => {
+        this.tes1 = data;
+      })
+
+    //=============================================================
+    var date = new Date();
+    this.tanggal = date.getFullYear()+ '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' +('0' + date.getDate()).slice(-2); 
+    console.log(this.tanggal);
+    //=============================================================d
+    this.iddata = '';
+    this.http.get('http://103.40.94.42/wssurat/Api/plh?id='+window.localStorage.getItem('id')+'&tgl='+this.tanggal)
+    .subscribe((data:any=[]) => {
+      console.log(data.KODE_UNOR);
+      this.iddata = data.KODE_UNOR;
+       if(data.length > 0){
+          this.mata = 'mata1';
+       }else {
+          this.mata = 'mata2';
+       }
+       console.log(this.iddata);
+    });
+
+  }
+
+  doRefresh(refresher,item) {
+    console.log('Begin async operation', refresher);
+
+    if(this.zipped==false){
+      this.getdatasurat(this.nCnt,item);
+    }else{
+      this.getdatasurat(this.nCnt,window.localStorage.getItem('kode_unor'));
+    }
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+TES(text){
+  return text;
+}
+
+async plhpilih(){
+  var date = new Date();
+  this.tanggal = date.getFullYear()+ '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' +('0' + date.getDate()).slice(-2); 
+
+  return new Promise(resolve => {
+    this.http.get('http://103.40.94.42/wssurat/Api/plh?id='+window.localStorage.getItem('id')+'&tgl='+this.tanggal)
+    // .map(res => res)  
+    .subscribe((data:any=[]) => {
+        // this.itemspartners = JSON.parse(data['_body']).results;
+        for (let i = 0; i < data.length; i++) {
+          this.kode = data[0].KODE_UNOR_PEMBERI;
+          resolve(this.kode);
+        }
+      });
+  });
+}
+  
+plh(item){
+  this.zipped = !this.zipped;
+  console.log(item);
+  if(this.zipped==false){
+    // this.plhpilih().then(data => {
+    //   this.tes1 = data;
+    //   this.getdatasurat(this.nCnt,this.tes1);
+    // })
+    this.getdatasurat(this.nCnt,item);
+    // this.isisurat = this.getdatasurat(this.nCnt,item);
+  }else{
+    this.getdatasurat(this.nCnt,window.localStorage.getItem('kode_unor'));
+    // this.isisurat = this.getdatasurat(this.nCnt,window.localStorage.getItem('kode_unor'));
+  }
+}
+
+getdatasurat(no,param){
+    this.showLoader();
+  
+    this.http.get('http://103.40.94.42/wssurat/Api/suratmasukasli/page/'+no+'?kode_unor='+param)
+    .subscribe((data:any=[]) => {
+      this.hideLoader();
+      
+      this.isi=[];
+      for (let i = 0; i < data.items.length; i++) {
+        this.bground='';
+        this.tulisan='';
+          if (data.items[i].TRKECEPATANSURAT_ID==3) {
+            this.tulisan='merah';
+          }else if(data.items[i].TRKECEPATANSURAT_ID==2){
+            this.tulisan='kuning';
+          }else{
+            this.bground = '';
+            this.tulisan='hitam';
+          }
+
+          if(param == data.items[i].KODE_UNOR){
+            this.kode_unor = data.items[i].KODE_UNOR
+          }else{
+            this.kode_unor = param;
+          }
+
+        this.isi.push({
+          perihal: data.items[i].PERIHAL,
+          asalsurat: data.items[i].TEXT_ASAL_SURAT,
+          tglsurat: data.items[i].TGL_SURAT,
+          icon: this.icons[Math.floor(Math.random() * this.icons.length)],
+          bg:this.bground,
+          tls:this.tulisan,
+          id:data.items[i].ID,
+          kec:data.items[i].TRKECEPATANSURAT_ID,
+          sifat:data.items[i].TRSIFATSURAT_ID,
+          disp:data.items[i].disp,
+          kode:this.kode_unor
+        });
+        
+      }
+      this.pagecount = data._meta.pageCount;
+    });
+  }
+
+ 
+
+  showLoader() { //call this fn to show loader
+    this.loader = this.loadingCtrl.create({
+        content: 'Please wait...',
+    });
+    this.loader.present();    
+  }
+
+  hideLoader() {
+    if(this.loader)
+      this.loader.dismiss();
+  }
+
+  itemTapped(event, item) {
+    this.navCtrl.push(SurataslidetailPage, {
+      item: item
+    });
+  }
+
+  df(tes){
+    window.open("http://103.40.94.42/wssurat/Api/downloadsuratmasuk?id="+tes,"_system","location=yes");
+  }
+
+  nextpage(item,item2) {
+
+    this.nCnt = this.nCnt+10;
+
+    if(this.pagenumber >= item-2){
+      this.teks = "hilang";
+    }else{
+      this.teks = "ada";
+    }
+
+    if(this.nCnt == 0){
+      this.teks2 = "hilang";
+    }else{
+      this.teks2 = "ada";
+    }
+
+    if(this.zipped==false){
+      this.getdatasurat(this.nCnt,item2);
+    }else{
+      this.getdatasurat(this.nCnt,window.localStorage.getItem('kode_unor'));
+    }
+    this.pagenumber = this.pagenumber+1;
+    return this.nCnt; 
+  }
+
+  backpage(item,item2) {
+    this.nCnt = this.nCnt-10;
+
+    if(this.pagenumber <= 0){
+      this.teks = "hilang";
+    }else{
+      this.teks = "ada";
+    }
+
+    if(this.nCnt==0){
+      this.teks2 = "hilang";
+    }else{
+      this.teks2 = "ada";
+    }
+
+    if(this.zipped==false){
+      this.getdatasurat(this.nCnt,item2);
+    }else{
+      this.getdatasurat(this.nCnt,window.localStorage.getItem('kode_unor'));
+    }
+    this.pagenumber = this.pagenumber-1;
+    return this.nCnt; 
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SuratasliPage');
+  }
+
+  Logout(){
+    let alert = this.alertCtrl.create({
+      title: 'Confirm Exit',
+      message: 'Are you want to exit,'+ window.localStorage.getItem('nama'),
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            window.localStorage.removeItem('username');
+            window.localStorage.removeItem('password');
+            window.localStorage.removeItem('nama');
+            window.localStorage.removeItem('kode_unor');
+            window.localStorage.removeItem('kode_unker');
+            window.localStorage.removeItem('id');
+            window.localStorage.removeItem('verifikator');
+            this.oneSignal.sendTag('userlog','');
+            this.navCtrl.setRoot(LoginPage);
+            this.navCtrl.popToRoot();
+            console.log('OK');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+}
